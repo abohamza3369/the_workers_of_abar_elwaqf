@@ -22,7 +22,7 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
     if (val.length > 11) {
       return 'رقم الهاتف يجب أن يكون ١١ رقم';
     }
-    if (!RegExp('^\\d+(\\.\\d+)?\$').hasMatch(val)) {
+    if (!RegExp('^[0-9]+\$').hasMatch(val)) {
       return 'اكتب رقم الهاتف بالانجليزية';
     }
     return null;

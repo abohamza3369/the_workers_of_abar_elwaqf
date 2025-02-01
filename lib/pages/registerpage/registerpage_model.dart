@@ -13,7 +13,7 @@ class RegisterpageModel extends FlutterFlowModel<RegisterpageWidget> {
   String? _phoneNumberTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'اكتب الايميل';
+      return 'يجب كتابة رقم الهاتف';
     }
 
     if (val.length < 11) {
@@ -22,7 +22,7 @@ class RegisterpageModel extends FlutterFlowModel<RegisterpageWidget> {
     if (val.length > 11) {
       return 'رقم الهاتف يجب أن يكون ١١ رقم';
     }
-    if (!RegExp('^\\d+(\\.\\d+)?\$').hasMatch(val)) {
+    if (!RegExp('^[0-9]+\$').hasMatch(val)) {
       return 'الرقم يجب أن يكون بالأرقام الإنجليزية';
     }
     return null;
@@ -36,6 +36,10 @@ class RegisterpageModel extends FlutterFlowModel<RegisterpageWidget> {
   String? _passwordTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'اكتب الرقم السري بالإنجليزية ';
+    }
+
+    if (val.length < 6) {
+      return 'يجب أن تكون كلمة السر تتكون من ٦ حروف أو أرقام ';
     }
 
     if (!RegExp('^[a-zA-Z0-9]+\$').hasMatch(val)) {
@@ -54,6 +58,10 @@ class RegisterpageModel extends FlutterFlowModel<RegisterpageWidget> {
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'أعد كتابة الرقم السر  ';
+    }
+
+    if (val.length < 6) {
+      return 'يجب أن تكون كلمة السر تتكون من ٦ حروف أو أرقام ';
     }
 
     if (!RegExp('^[a-zA-Z0-9]+\$').hasMatch(val)) {

@@ -46,8 +46,6 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
 
     _model.priceForDayFocusNode1 ??= FocusNode();
 
-    _model.pricePerMetreFocusNode1 ??= FocusNode();
-
     _model.nameTextController2 ??= TextEditingController();
     _model.nameFocusNode2 ??= FocusNode();
 
@@ -62,9 +60,6 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
 
     _model.priceForDayTextController2 ??= TextEditingController();
     _model.priceForDayFocusNode2 ??= FocusNode();
-
-    _model.pricePerMetreTextController2 ??= TextEditingController();
-    _model.pricePerMetreFocusNode2 ??= FocusNode();
 
     _model.phoneNumberTextController3 ??= TextEditingController();
     _model.phoneNumberFocusNode3 ??= FocusNode();
@@ -259,23 +254,6 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
           ),
         ],
       ),
-      'rowOnPageLoadAnimation6': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 2000.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(
-                valueOrDefault<double>(
-                  -MediaQuery.sizeOf(context).width - 100,
-                  1.0,
-                ),
-                0.0),
-            end: const Offset(0.0, 0.0),
-          ),
-        ],
-      ),
       'buttonOnActionTriggerAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onActionTrigger,
         applyInitialState: true,
@@ -406,7 +384,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
           ),
         ],
       ),
-      'rowOnPageLoadAnimation7': AnimationInfo(
+      'rowOnPageLoadAnimation6': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           MoveEffect(
@@ -423,7 +401,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
           ),
         ],
       ),
-      'rowOnPageLoadAnimation8': AnimationInfo(
+      'rowOnPageLoadAnimation7': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           MoveEffect(
@@ -458,23 +436,6 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
         ],
       ),
       'textFieldOnPageLoadAnimation8': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 2000.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(
-                valueOrDefault<double>(
-                  -MediaQuery.sizeOf(context).width - 100,
-                  1.0,
-                ),
-                0.0),
-            end: const Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'textFieldOnPageLoadAnimation9': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           MoveEffect(
@@ -553,7 +514,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
           ),
         ],
       ),
-      'textFieldOnPageLoadAnimation10': AnimationInfo(
+      'textFieldOnPageLoadAnimation9': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           MoveEffect(
@@ -570,7 +531,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
           ),
         ],
       ),
-      'textFieldOnPageLoadAnimation11': AnimationInfo(
+      'textFieldOnPageLoadAnimation10': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           MoveEffect(
@@ -587,7 +548,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
           ),
         ],
       ),
-      'textFieldOnPageLoadAnimation12': AnimationInfo(
+      'textFieldOnPageLoadAnimation11': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           MoveEffect(
@@ -966,8 +927,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                         (textPublicusersRow?.theWork != null &&
                             textPublicusersRow?.theWork != '') ||
                         (textPublicusersRow?.yearsExperience != null) ||
-                        (textPublicusersRow?.priceInDay != null) ||
-                        (textPublicusersRow?.priceInMetre != null)
+                        (textPublicusersRow?.priceInDay != null)
                     ? 'تغيير البيانات'
                     : 'تسجيل البيانات',
                 textAlign: TextAlign.center,
@@ -1043,9 +1003,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                       columnPublicusersRow?.theWork != '') ||
                                   (columnPublicusersRow?.yearsExperience !=
                                       null) ||
-                                  (columnPublicusersRow?.priceInDay != null) ||
-                                  (columnPublicusersRow?.priceInMetre !=
-                                      null)) {
+                                  (columnPublicusersRow?.priceInDay != null)) {
                                 return SingleChildScrollView(
                                   primary: false,
                                   child: Column(
@@ -1617,6 +1575,9 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                 ),
                                                         textAlign:
                                                             TextAlign.end,
+                                                        keyboardType:
+                                                            TextInputType
+                                                                .number,
                                                         cursorColor:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -2303,161 +2264,6 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                     ).animateOnPageLoad(
                                                         animationsMap[
                                                             'rowOnPageLoadAnimation5']!),
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment.end,
-                                                      children: [
-                                                        SizedBox(
-                                                          width: 200.0,
-                                                          child: TextFormField(
-                                                            controller: _model
-                                                                    .pricePerMetreTextController1 ??=
-                                                                TextEditingController(
-                                                              text: columnPublicusersRow
-                                                                  ?.priceInMetre
-                                                                  ?.toString(),
-                                                            ),
-                                                            focusNode: _model
-                                                                .pricePerMetreFocusNode1,
-                                                            autofocus: false,
-                                                            obscureText: false,
-                                                            decoration:
-                                                                InputDecoration(
-                                                              isDense: true,
-                                                              hintText:
-                                                                  'سعر المتر',
-                                                              hintStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Noto Kufi Arabic',
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .secondaryText,
-                                                                        fontSize:
-                                                                            16.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                      ),
-                                                              enabledBorder:
-                                                                  OutlineInputBorder(
-                                                                borderSide:
-                                                                    BorderSide(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondary,
-                                                                  width: 2.0,
-                                                                ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            8.0),
-                                                              ),
-                                                              focusedBorder:
-                                                                  OutlineInputBorder(
-                                                                borderSide:
-                                                                    BorderSide(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondary,
-                                                                  width: 2.0,
-                                                                ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            8.0),
-                                                              ),
-                                                              errorBorder:
-                                                                  OutlineInputBorder(
-                                                                borderSide:
-                                                                    BorderSide(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .error,
-                                                                  width: 2.0,
-                                                                ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            8.0),
-                                                              ),
-                                                              focusedErrorBorder:
-                                                                  OutlineInputBorder(
-                                                                borderSide:
-                                                                    BorderSide(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .error,
-                                                                  width: 2.0,
-                                                                ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            8.0),
-                                                              ),
-                                                              filled: true,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .titleMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Kufi Arabic',
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
-                                                            textAlign:
-                                                                TextAlign.end,
-                                                            keyboardType:
-                                                                const TextInputType
-                                                                    .numberWithOptions(
-                                                                    decimal:
-                                                                        true),
-                                                            cursorColor:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondary,
-                                                            validator: _model
-                                                                .pricePerMetreTextController1Validator
-                                                                .asValidator(
-                                                                    context),
-                                                          ),
-                                                        ),
-                                                        GradientText(
-                                                          'سعر المتر',
-                                                          textAlign:
-                                                              TextAlign.end,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .titleMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Kufi Arabic',
-                                                                fontSize: 16.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                              ),
-                                                          colors: [
-                                                            const Color(0xFF442CBC),
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondary
-                                                          ],
-                                                          gradientDirection:
-                                                              GradientDirection
-                                                                  .rtl,
-                                                          gradientType:
-                                                              GradientType
-                                                                  .linear,
-                                                        ),
-                                                      ].divide(const SizedBox(
-                                                          width: 50.0)),
-                                                    ).animateOnPageLoad(
-                                                        animationsMap[
-                                                            'rowOnPageLoadAnimation6']!),
                                                     Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
@@ -2516,8 +2322,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                 'name': _model
                                                                     .nameTextController1
                                                                     .text,
-                                                                'age': double
-                                                                    .tryParse(_model
+                                                                'age': int.tryParse(
+                                                                    _model
                                                                         .ageTextController1
                                                                         .text),
                                                                 'address': _model
@@ -2525,16 +2331,12 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                 'the_work': _model
                                                                     .chooseTheWorkValue1,
                                                                 'years_experience':
-                                                                    double.tryParse(_model
+                                                                    int.tryParse(_model
                                                                         .yearsOfExpertTextController1
                                                                         .text),
                                                                 'price_in_day':
                                                                     double.tryParse(_model
                                                                         .priceForDayTextController1
-                                                                        .text),
-                                                                'price_in_metre':
-                                                                    double.tryParse(_model
-                                                                        .pricePerMetreTextController1
                                                                         .text),
                                                               },
                                                               matchingRows:
@@ -3417,9 +3219,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                       ),
                                                   textAlign: TextAlign.end,
                                                   keyboardType:
-                                                      const TextInputType
-                                                          .numberWithOptions(
-                                                          decimal: true),
+                                                      TextInputType.number,
                                                   cursorColor:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -3541,7 +3341,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                   ),
                                                 ],
                                               ).animateOnPageLoad(animationsMap[
-                                                  'rowOnPageLoadAnimation7']!),
+                                                  'rowOnPageLoadAnimation6']!),
                                               Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
@@ -3621,7 +3421,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                   ),
                                                 ].divide(const SizedBox(width: 3.0)),
                                               ).animateOnPageLoad(animationsMap[
-                                                  'rowOnPageLoadAnimation8']!),
+                                                  'rowOnPageLoadAnimation7']!),
                                               SizedBox(
                                                 width: double.infinity,
                                                 child: TextFormField(
@@ -3711,9 +3511,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                       ),
                                                   textAlign: TextAlign.end,
                                                   keyboardType:
-                                                      const TextInputType
-                                                          .numberWithOptions(
-                                                          decimal: true),
+                                                      TextInputType.number,
                                                   cursorColor:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -3825,107 +3623,6 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                 ),
                                               ).animateOnPageLoad(animationsMap[
                                                   'textFieldOnPageLoadAnimation8']!),
-                                              SizedBox(
-                                                width: double.infinity,
-                                                child: TextFormField(
-                                                  controller: _model
-                                                      .pricePerMetreTextController2,
-                                                  focusNode: _model
-                                                      .pricePerMetreFocusNode2,
-                                                  autofocus: false,
-                                                  obscureText: false,
-                                                  decoration: InputDecoration(
-                                                    isDense: true,
-                                                    hintText: 'سعر المتر',
-                                                    hintStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .titleMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Kufi Arabic',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryText,
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                    enabledBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondary,
-                                                        width: 2.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                    ),
-                                                    focusedBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondary,
-                                                        width: 2.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                    ),
-                                                    errorBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .error,
-                                                        width: 2.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                    ),
-                                                    focusedErrorBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .error,
-                                                        width: 2.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                    ),
-                                                    filled: true,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .titleMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Noto Kufi Arabic',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                                  textAlign: TextAlign.end,
-                                                  keyboardType:
-                                                      const TextInputType
-                                                          .numberWithOptions(
-                                                          decimal: true),
-                                                  cursorColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondary,
-                                                  validator: _model
-                                                      .pricePerMetreTextController2Validator
-                                                      .asValidator(context),
-                                                ),
-                                              ).animateOnPageLoad(animationsMap[
-                                                  'textFieldOnPageLoadAnimation9']!),
                                               FFButtonWidget(
                                                 onPressed: () async {
                                                   if (animationsMap[
@@ -3978,25 +3675,20 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                       'name': _model
                                                           .nameTextController2
                                                           .text,
-                                                      'age': double.tryParse(
-                                                          _model
-                                                              .ageTextController2
-                                                              .text),
+                                                      'age': int.tryParse(_model
+                                                          .ageTextController2
+                                                          .text),
                                                       'address': _model
                                                           .chipsAddressValue2,
                                                       'the_work': _model
                                                           .chooseTheWorkValue2,
                                                       'years_experience':
-                                                          double.tryParse(_model
+                                                          int.tryParse(_model
                                                               .yearsOfExpertTextController2
                                                               .text),
                                                       'price_in_day':
                                                           double.tryParse(_model
                                                               .priceForDayTextController2
-                                                              .text),
-                                                      'price_in_metre':
-                                                          double.tryParse(_model
-                                                              .pricePerMetreTextController2
                                                               .text),
                                                     });
                                                     ScaffoldMessenger.of(
@@ -4103,17 +3795,18 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                     animationsMap[
                                                         'buttonOnActionTriggerAnimation3']!,
                                                   ),
-                                              if ((columnPublicusersRow
-                                                              ?.imgUrl !=
+                                              if ((columnPublicusersRow?.imgUrl !=
                                                           null &&
                                                       columnPublicusersRow
                                                               ?.imgUrl !=
                                                           '') ||
-                                                  (columnPublicusersRow?.phoneNumber != null &&
-                                                      columnPublicusersRow?.phoneNumber !=
-                                                          '') ||
                                                   (columnPublicusersRow
-                                                              ?.name !=
+                                                              ?.phoneNumber !=
+                                                          null &&
+                                                      columnPublicusersRow
+                                                              ?.phoneNumber !=
+                                                          '') ||
+                                                  (columnPublicusersRow?.name !=
                                                           null &&
                                                       columnPublicusersRow
                                                               ?.name !=
@@ -4138,9 +3831,6 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                       null) ||
                                                   (columnPublicusersRow
                                                           ?.priceInDay !=
-                                                      null) ||
-                                                  (columnPublicusersRow
-                                                          ?.priceInMetre !=
                                                       null))
                                                 Builder(
                                                   builder: (context) => Padding(
@@ -4374,7 +4064,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                   .asValidator(context),
                                             ),
                                           ).animateOnPageLoad(animationsMap[
-                                              'textFieldOnPageLoadAnimation10']!),
+                                              'textFieldOnPageLoadAnimation9']!),
                                           SizedBox(
                                             width: double.infinity,
                                             child: TextFormField(
@@ -4485,7 +4175,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                   .asValidator(context),
                                             ),
                                           ).animateOnPageLoad(animationsMap[
-                                              'textFieldOnPageLoadAnimation11']!),
+                                              'textFieldOnPageLoadAnimation10']!),
                                           SizedBox(
                                             width: double.infinity,
                                             child: TextFormField(
@@ -4596,7 +4286,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                   .asValidator(context),
                                             ),
                                           ).animateOnPageLoad(animationsMap[
-                                              'textFieldOnPageLoadAnimation12']!),
+                                              'textFieldOnPageLoadAnimation11']!),
                                           FFButtonWidget(
                                             onPressed: () async {
                                               Function() navigate = () {};

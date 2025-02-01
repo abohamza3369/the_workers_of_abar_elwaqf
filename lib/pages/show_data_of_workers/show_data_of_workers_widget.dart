@@ -1,12 +1,10 @@
 import '/backend/supabase/supabase.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
@@ -30,13 +28,10 @@ class ShowDataOfWorkersWidget extends StatefulWidget {
       _ShowDataOfWorkersWidgetState();
 }
 
-class _ShowDataOfWorkersWidgetState extends State<ShowDataOfWorkersWidget>
-    with TickerProviderStateMixin {
+class _ShowDataOfWorkersWidgetState extends State<ShowDataOfWorkersWidget> {
   late ShowDataOfWorkersModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -54,28 +49,6 @@ class _ShowDataOfWorkersWidgetState extends State<ShowDataOfWorkersWidget>
         safeSetState(() {});
       }
     });
-
-    animationsMap.addAll({
-      'buttonOnActionTriggerAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onActionTrigger,
-        applyInitialState: true,
-        effectsBuilder: () => [
-          ScaleEffect(
-            curve: Curves.elasticOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: const Offset(1.0, 1.0),
-            end: const Offset(1.3, 1.3),
-          ),
-        ],
-      ),
-    });
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
   }
 
   @override
@@ -473,14 +446,14 @@ class _ShowDataOfWorkersWidgetState extends State<ShowDataOfWorkersWidget>
                                               child: Image.network(
                                                 gridViewPublicusersRow.imgUrl!,
                                                 width: double.infinity,
-                                                height: 113.0,
+                                                height: 123.0,
                                                 fit: BoxFit.cover,
                                                 errorBuilder: (context, error,
                                                         stackTrace) =>
                                                     Image.asset(
                                                   'assets/images/error_image.png',
                                                   width: double.infinity,
-                                                  height: 113.0,
+                                                  height: 123.0,
                                                   fit: BoxFit.cover,
                                                 ),
                                               ),
@@ -496,7 +469,7 @@ class _ShowDataOfWorkersWidgetState extends State<ShowDataOfWorkersWidget>
                                                 gridViewPublicusersRow.name,
                                                 'name',
                                               ).maybeHandleOverflow(
-                                                maxChars: 14,
+                                                maxChars: 19,
                                                 replacement: '…',
                                               ),
                                               textAlign: TextAlign.end,
@@ -668,22 +641,9 @@ class _ShowDataOfWorkersWidgetState extends State<ShowDataOfWorkersWidget>
                                                                   20.0,
                                                                   0.0,
                                                                   20.0,
-                                                                  5.0),
+                                                                  4.0),
                                                       child: FFButtonWidget(
                                                         onPressed: () async {
-                                                          if (animationsMap[
-                                                                  'buttonOnActionTriggerAnimation'] !=
-                                                              null) {
-                                                            await animationsMap[
-                                                                    'buttonOnActionTriggerAnimation']!
-                                                                .controller
-                                                                .forward(
-                                                                    from: 0.0);
-                                                          }
-                                                          await Future.delayed(
-                                                              const Duration(
-                                                                  milliseconds:
-                                                                      600));
                                                           await launchUrl(Uri(
                                                             scheme: 'tel',
                                                             path: gridViewPublicusersRow
@@ -696,13 +656,11 @@ class _ShowDataOfWorkersWidgetState extends State<ShowDataOfWorkersWidget>
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondaryBackground,
-                                                          size: 22.0,
+                                                          size: 20.0,
                                                         ),
                                                         options:
                                                             FFButtonOptions(
-                                                          width: 100.0,
-                                                          height:
-                                                              double.infinity,
+                                                          height: 30.0,
                                                           padding:
                                                               const EdgeInsetsDirectional
                                                                   .fromSTEB(
@@ -738,9 +696,6 @@ class _ShowDataOfWorkersWidgetState extends State<ShowDataOfWorkersWidget>
                                                                   .circular(
                                                                       8.0),
                                                         ),
-                                                      ).animateOnActionTrigger(
-                                                        animationsMap[
-                                                            'buttonOnActionTriggerAnimation']!,
                                                       ),
                                                     ),
                                                   ),

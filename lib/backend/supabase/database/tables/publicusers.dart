@@ -26,8 +26,8 @@ class PublicusersRow extends SupabaseDataRow {
   String? get name => getField<String>('name');
   set name(String? value) => setField<String>('name', value);
 
-  double? get age => getField<double>('age');
-  set age(double? value) => setField<double>('age', value);
+  int? get age => getField<int>('age');
+  set age(int? value) => setField<int>('age', value);
 
   String? get address => getField<String>('address');
   set address(String? value) => setField<String>('address', value);
@@ -35,13 +35,9 @@ class PublicusersRow extends SupabaseDataRow {
   String? get theWork => getField<String>('the_work');
   set theWork(String? value) => setField<String>('the_work', value);
 
-  double? get yearsExperience => getField<double>('years_experience');
-  set yearsExperience(double? value) =>
-      setField<double>('years_experience', value);
+  int? get yearsExperience => getField<int>('years_experience');
+  set yearsExperience(int? value) => setField<int>('years_experience', value);
 
   double? get priceInDay => getField<double>('price_in_day');
   set priceInDay(double? value) => setField<double>('price_in_day', value);
-
-  double? get priceInMetre => getField<double>('price_in_metre');
-  set priceInMetre(double? value) => setField<double>('price_in_metre', value);
 }

@@ -53,7 +53,7 @@ class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
     if (val.length > 11) {
       return 'اكتب رقم الهاتف بشكل صحيح';
     }
-    if (!RegExp('^\\d+(\\.\\d+)?\$').hasMatch(val)) {
+    if (!RegExp('^[0-9]+\$').hasMatch(val)) {
       return 'اكتب رقم الهاتف بالانجليزية';
     }
     return null;
@@ -72,7 +72,7 @@ class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
       return 'يجب أن يكون عمرك أكبر من  18  سنة ';
     }
 
-    if (!RegExp('^\\d+(\\.\\d+)?\$').hasMatch(val)) {
+    if (!RegExp('^[0-9]+\$').hasMatch(val)) {
       return 'اكتب عمرك  بالأرقام الإنجليزية';
     }
     return null;
@@ -102,7 +102,7 @@ class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
       return 'Requires at least 1 characters.';
     }
 
-    if (!RegExp('^\\d+(\\.\\d+)?\$').hasMatch(val)) {
+    if (!RegExp('^[0-9]+\$').hasMatch(val)) {
       return 'ادخل العدد بالأرقام الإنجليزية';
     }
     return null;
@@ -124,23 +124,6 @@ class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
 
     if (!RegExp('^\\d+(\\.\\d+)?\$').hasMatch(val)) {
       return 'السعر يجب أن يكون بالأرقام الإنجليزية';
-    }
-    return null;
-  }
-
-  // State field(s) for price_per_metre widget.
-  FocusNode? pricePerMetreFocusNode1;
-  TextEditingController? pricePerMetreTextController1;
-  String? Function(BuildContext, String?)?
-      pricePerMetreTextController1Validator;
-  String? _pricePerMetreTextController1Validator(
-      BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return 'ادخل سعر المتر';
-    }
-
-    if (!RegExp('^\\d+(\\.\\d+)?\$').hasMatch(val)) {
-      return 'اكتب السعر بالانجليزية';
     }
     return null;
   }
@@ -184,7 +167,7 @@ class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
     if (val.length > 11) {
       return 'اكتب رقم الهاتف بشكل صحيح';
     }
-    if (!RegExp('^\\d+(\\.\\d+)?\$').hasMatch(val)) {
+    if (!RegExp('^[0-9]+\$').hasMatch(val)) {
       return 'اكتب رقم الهاتف بالانجليزية';
     }
     return null;
@@ -203,7 +186,7 @@ class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
       return 'يجب أن يكون عمرك أكبر من  18  سنة ';
     }
 
-    if (!RegExp('^\\d+(\\.\\d+)?\$').hasMatch(val)) {
+    if (!RegExp('^[0-9]+\$').hasMatch(val)) {
       return 'اكتب عمرك  بالأرقام الإنجليزية';
     }
     return null;
@@ -229,7 +212,7 @@ class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
       return 'ادخل عدد سنوات الخبرة';
     }
 
-    if (!RegExp('^\\d+(\\.\\d+)?\$').hasMatch(val)) {
+    if (!RegExp('^[0-9]+\$').hasMatch(val)) {
       return 'ادخل العدد بالأرقام الإنجليزية';
     }
     return null;
@@ -247,23 +230,6 @@ class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
 
     if (!RegExp('^\\d+(\\.\\d+)?\$').hasMatch(val)) {
       return 'السعر يجب أن يكون بالأرقام الإنجليزية';
-    }
-    return null;
-  }
-
-  // State field(s) for price_per_metre widget.
-  FocusNode? pricePerMetreFocusNode2;
-  TextEditingController? pricePerMetreTextController2;
-  String? Function(BuildContext, String?)?
-      pricePerMetreTextController2Validator;
-  String? _pricePerMetreTextController2Validator(
-      BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return 'ادخل سعر المتر أو اكتب رقم صفر';
-    }
-
-    if (!RegExp('^\\d+(\\.\\d+)?\$').hasMatch(val)) {
-      return 'Invalid text';
     }
     return null;
   }
@@ -288,7 +254,7 @@ class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
     if (val.length > 11) {
       return 'رقم الهاتف يجب أن يكون ١١ رقم';
     }
-    if (!RegExp('^\\d+(\\.\\d+)?\$').hasMatch(val)) {
+    if (!RegExp('^[0-9]+\$').hasMatch(val)) {
       return 'اكتب رقم الهاتف بالارقام الانجليزية';
     }
     return null;
@@ -302,6 +268,10 @@ class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
   String? _passwordTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'اكتب الرقم السري ';
+    }
+
+    if (val.length < 6) {
+      return 'يجب أن تكون كلمة السر تتكون من ٦ حروف أو أرقام ';
     }
 
     if (!RegExp('^[a-zA-Z0-9]+\$').hasMatch(val)) {
@@ -322,6 +292,10 @@ class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
       return 'أعد كتابة الرقم السر  ';
     }
 
+    if (val.length < 6) {
+      return 'يجب أن تكون كلمة السر تتكون من ٦ حروف أو أرقام ';
+    }
+
     if (!RegExp('^[a-zA-Z0-9]+\$').hasMatch(val)) {
       return 'اكتب كلمة السر بالحروف أو الأرقام الإنجليزية ';
     }
@@ -339,16 +313,12 @@ class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
     yearsOfExpertTextController1Validator =
         _yearsOfExpertTextController1Validator;
     priceForDayTextController1Validator = _priceForDayTextController1Validator;
-    pricePerMetreTextController1Validator =
-        _pricePerMetreTextController1Validator;
     nameTextController2Validator = _nameTextController2Validator;
     phoneNumberTextController2Validator = _phoneNumberTextController2Validator;
     ageTextController2Validator = _ageTextController2Validator;
     yearsOfExpertTextController2Validator =
         _yearsOfExpertTextController2Validator;
     priceForDayTextController2Validator = _priceForDayTextController2Validator;
-    pricePerMetreTextController2Validator =
-        _pricePerMetreTextController2Validator;
     phoneNumberTextController3Validator = _phoneNumberTextController3Validator;
     passwordVisibility = false;
     passwordTextControllerValidator = _passwordTextControllerValidator;
@@ -374,9 +344,6 @@ class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
     priceForDayFocusNode1?.dispose();
     priceForDayTextController1?.dispose();
 
-    pricePerMetreFocusNode1?.dispose();
-    pricePerMetreTextController1?.dispose();
-
     nameFocusNode2?.dispose();
     nameTextController2?.dispose();
 
@@ -391,9 +358,6 @@ class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
 
     priceForDayFocusNode2?.dispose();
     priceForDayTextController2?.dispose();
-
-    pricePerMetreFocusNode2?.dispose();
-    pricePerMetreTextController2?.dispose();
 
     phoneNumberFocusNode3?.dispose();
     phoneNumberTextController3?.dispose();
