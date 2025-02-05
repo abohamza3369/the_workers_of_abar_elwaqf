@@ -40,4 +40,10 @@ class PublicusersRow extends SupabaseDataRow {
 
   double? get priceInDay => getField<double>('price_in_day');
   set priceInDay(double? value) => setField<double>('price_in_day', value);
+
+  String? get state => getField<String>('state');
+  set state(String? value) => setField<String>('state', value);
+
+  String? get moreDetail => getField<String>('more_detail');
+  set moreDetail(String? value) => setField<String>('more_detail', value);
 }

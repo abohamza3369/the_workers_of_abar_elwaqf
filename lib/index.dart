@@ -5,3 +5,5 @@ export '/pages/login_page/login_page_widget.dart' show LoginPageWidget;
 export '/pages/show_data_of_workers/show_data_of_workers_widget.dart'
     show ShowDataOfWorkersWidget;
 export '/pages/profile_page/profile_page_widget.dart' show ProfilePageWidget;
+export '/pages/all_information_of_worker/all_information_of_worker_widget.dart'
+    show AllInformationOfWorkerWidget;

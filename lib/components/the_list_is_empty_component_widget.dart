@@ -6,20 +6,20 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'confirm_delete_account_model.dart';
-export 'confirm_delete_account_model.dart';
+import 'the_list_is_empty_component_model.dart';
+export 'the_list_is_empty_component_model.dart';
 
-class ConfirmDeleteAccountWidget extends StatefulWidget {
-  const ConfirmDeleteAccountWidget({super.key});
+class TheListIsEmptyComponentWidget extends StatefulWidget {
+  const TheListIsEmptyComponentWidget({super.key});
 
   @override
-  State<ConfirmDeleteAccountWidget> createState() =>
-      _ConfirmDeleteAccountWidgetState();
+  State<TheListIsEmptyComponentWidget> createState() =>
+      _TheListIsEmptyComponentWidgetState();
 }
 
-class _ConfirmDeleteAccountWidgetState extends State<ConfirmDeleteAccountWidget>
-    with TickerProviderStateMixin {
-  late ConfirmDeleteAccountModel _model;
+class _TheListIsEmptyComponentWidgetState
+    extends State<TheListIsEmptyComponentWidget> with TickerProviderStateMixin {
+  late TheListIsEmptyComponentModel _model;
 
   final animationsMap = <String, AnimationInfo>{};
 
@@ -32,7 +32,7 @@ class _ConfirmDeleteAccountWidgetState extends State<ConfirmDeleteAccountWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => ConfirmDeleteAccountModel());
+    _model = createModel(context, () => TheListIsEmptyComponentModel());
 
     animationsMap.addAll({
       'buttonOnActionTriggerAnimation': AnimationInfo(
@@ -122,11 +122,12 @@ class _ConfirmDeleteAccountWidgetState extends State<ConfirmDeleteAccountWidget>
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 34.0, 0.0, 0.0),
                       child: Text(
-                        'هل أنت متأكد أنك تريد حذف بياناتك من التطبيق',
+                        'لم يتم تسجيل بيانات أي عامل بعد\nهل تريد تسجيل بياناتك في التطبيق   ',
                         textAlign: TextAlign.end,
                         style:
                             FlutterFlowTheme.of(context).titleMedium.override(
                                   fontFamily: 'Noto Kufi Arabic',
+                                  fontSize: 16.0,
                                   letterSpacing: 0.0,
                                 ),
                       ),
@@ -140,64 +141,31 @@ class _ConfirmDeleteAccountWidgetState extends State<ConfirmDeleteAccountWidget>
                         children: [
                           FFButtonWidget(
                             onPressed: () async {
-                              if (animationsMap[
-                                      'buttonOnActionTriggerAnimation'] !=
-                                  null) {
-                                await animationsMap[
-                                        'buttonOnActionTriggerAnimation']!
-                                    .controller
-                                    .forward(from: 0.0);
-                              }
-                              await Future.delayed(
-                                  const Duration(milliseconds: 300));
                               _model.clickyess = true;
                               safeSetState(() {});
                               if (_model.clickyess!) {
-                                await PublicusersTable().delete(
-                                  matchingRows: (rows) => rows.eqOrNull(
-                                    'id',
-                                    currentUserUid,
-                                  ),
-                                );
-                                await deleteSupabaseFileFromPublicUrl(
-                                    columnPublicusersRow!.imgUrl!);
-                                GoRouter.of(context).prepareAuthEvent();
-                                await authManager.signOut();
-                                GoRouter.of(context).clearRedirectLocation();
-
                                 Navigator.pop(context);
 
-                                context.goNamedAuth(
-                                  'HomePage',
-                                  context.mounted,
+                                context.goNamed(
+                                  'registerpage',
                                   extra: <String, dynamic>{
                                     kTransitionInfoKey: const TransitionInfo(
                                       hasTransition: true,
                                       transitionType:
-                                          PageTransitionType.rightToLeft,
+                                          PageTransitionType.leftToRight,
                                     ),
                                   },
                                 );
-
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(
-                                      'تم حذف البيانات من التطبيق بنجاح',
-                                      style: FlutterFlowTheme.of(context)
-                                          .titleMedium
-                                          .override(
-                                            fontFamily: 'Noto Kufi Arabic',
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            fontSize: 16.0,
-                                            letterSpacing: 0.0,
-                                          ),
-                                      textAlign: TextAlign.end,
+                              } else {
+                                context.goNamed(
+                                  'HomePage',
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: const TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType:
+                                          PageTransitionType.leftToRight,
                                     ),
-                                    duration: const Duration(milliseconds: 4000),
-                                    backgroundColor:
-                                        FlutterFlowTheme.of(context).secondary,
-                                  ),
+                                  },
                                 );
                               }
                             },
@@ -225,15 +193,33 @@ class _ConfirmDeleteAccountWidgetState extends State<ConfirmDeleteAccountWidget>
                           ),
                           FFButtonWidget(
                             onPressed: () async {
-                              context.goNamed(
-                                'profile_page',
-                                extra: <String, dynamic>{
-                                  kTransitionInfoKey: const TransitionInfo(
-                                    hasTransition: true,
-                                    transitionType: PageTransitionType.fade,
-                                  ),
-                                },
-                              );
+                              _model.clickNoooo = true;
+                              safeSetState(() {});
+                              if (_model.clickNoooo!) {
+                                Navigator.pop(context);
+
+                                context.goNamed(
+                                  'HomePage',
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: const TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType:
+                                          PageTransitionType.leftToRight,
+                                    ),
+                                  },
+                                );
+                              } else {
+                                context.goNamed(
+                                  'HomePage',
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: const TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType:
+                                          PageTransitionType.leftToRight,
+                                    ),
+                                  },
+                                );
+                              }
                             },
                             text: 'لا أريد',
                             options: FFButtonOptions(

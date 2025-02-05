@@ -7,7 +7,7 @@
 
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:test_the_phone_in_the_workers_app/main.dart';
+import 'package:the_workers_register_by_phone_number/main.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {

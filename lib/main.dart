@@ -63,7 +63,7 @@ class _MyAppState extends State<MyApp> {
 
     _appStateNotifier = AppStateNotifier.instance;
     _router = createRouter(_appStateNotifier);
-    userStream = testThePhoneInTheWorkersAppSupabaseUserStream()
+    userStream = theWorkersRegisterByPhoneNumberSupabaseUserStream()
       ..listen((user) {
         _appStateNotifier.update(user);
       });
@@ -82,7 +82,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'test the phone in the workers app',
+      title: 'the workers register by phone number',
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -160,6 +160,10 @@ class _NavBarPageState extends State<NavBarPage> {
             icon: Icon(
               Icons.home_outlined,
               size: 28.0,
+            ),
+            activeIcon: Icon(
+              Icons.home,
+              size: 30.0,
             ),
             label: 'الرئيسية',
             tooltip: '',

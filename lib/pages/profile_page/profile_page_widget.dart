@@ -10,6 +10,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
@@ -36,33 +37,38 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
     super.initState();
     _model = createModel(context, () => ProfilePageModel());
 
-    _model.nameFocusNode1 ??= FocusNode();
+    _model.nameEditFocusNode ??= FocusNode();
 
-    _model.phoneNumberFocusNode1 ??= FocusNode();
+    _model.phoneNumberEditFocusNode ??= FocusNode();
 
-    _model.ageFocusNode1 ??= FocusNode();
+    _model.ageEditFocusNode ??= FocusNode();
 
-    _model.yearsOfExpertFocusNode1 ??= FocusNode();
+    _model.yearsOfExpertEditFocusNode ??= FocusNode();
 
-    _model.priceForDayFocusNode1 ??= FocusNode();
+    _model.priceForDayEditFocusNode ??= FocusNode();
 
-    _model.nameTextController2 ??= TextEditingController();
-    _model.nameFocusNode2 ??= FocusNode();
+    _model.moreDetailEditFocusNode ??= FocusNode();
 
-    _model.phoneNumberTextController2 ??= TextEditingController();
-    _model.phoneNumberFocusNode2 ??= FocusNode();
+    _model.nameCTextController ??= TextEditingController();
+    _model.nameCFocusNode ??= FocusNode();
 
-    _model.ageTextController2 ??= TextEditingController();
-    _model.ageFocusNode2 ??= FocusNode();
+    _model.phoneNumberCTextController ??= TextEditingController();
+    _model.phoneNumberCFocusNode ??= FocusNode();
 
-    _model.yearsOfExpertTextController2 ??= TextEditingController();
-    _model.yearsOfExpertFocusNode2 ??= FocusNode();
+    _model.ageCTextController ??= TextEditingController();
+    _model.ageCFocusNode ??= FocusNode();
 
-    _model.priceForDayTextController2 ??= TextEditingController();
-    _model.priceForDayFocusNode2 ??= FocusNode();
+    _model.yearsOfExpertCTextController ??= TextEditingController();
+    _model.yearsOfExpertCFocusNode ??= FocusNode();
 
-    _model.phoneNumberTextController3 ??= TextEditingController();
-    _model.phoneNumberFocusNode3 ??= FocusNode();
+    _model.priceForDayCTextController ??= TextEditingController();
+    _model.priceForDayCFocusNode ??= FocusNode();
+
+    _model.moreDetailedCTextController ??= TextEditingController();
+    _model.moreDetailedCFocusNode ??= FocusNode();
+
+    _model.phoneNumberTextController ??= TextEditingController();
+    _model.phoneNumberFocusNode ??= FocusNode();
 
     _model.passwordTextController ??= TextEditingController();
     _model.passwordFocusNode ??= FocusNode();
@@ -169,7 +175,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
           ),
         ],
       ),
-      'choiceChipsOnPageLoadAnimation': AnimationInfo(
+      'choiceChipsOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           MoveEffect(
@@ -238,6 +244,40 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
         ],
       ),
       'rowOnPageLoadAnimation5': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 2000.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(
+                valueOrDefault<double>(
+                  -MediaQuery.sizeOf(context).width - 100,
+                  1.0,
+                ),
+                0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'choiceChipsOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 2000.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(
+                valueOrDefault<double>(
+                  -MediaQuery.sizeOf(context).width - 100,
+                  1.0,
+                ),
+                0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           MoveEffect(
@@ -452,6 +492,40 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
           ),
         ],
       ),
+      'rowOnPageLoadAnimation8': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 2000.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(
+                valueOrDefault<double>(
+                  -MediaQuery.sizeOf(context).width - 100,
+                  1.0,
+                ),
+                0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'rowOnPageLoadAnimation9': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 2000.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(
+                valueOrDefault<double>(
+                  -MediaQuery.sizeOf(context).width - 100,
+                  1.0,
+                ),
+                0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
       'buttonOnActionTriggerAnimation3': AnimationInfo(
         trigger: AnimationTrigger.onActionTrigger,
         applyInitialState: true,
@@ -582,7 +656,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
           ),
         ],
       ),
-      'textOnPageLoadAnimation2': AnimationInfo(
+      'textOnPageLoadAnimation3': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           MoveEffect(
@@ -1359,14 +1433,14 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                       width: double.infinity,
                                                       child: TextFormField(
                                                         controller: _model
-                                                                .nameTextController1 ??=
+                                                                .nameEditTextController ??=
                                                             TextEditingController(
                                                           text:
                                                               columnPublicusersRow
                                                                   ?.name,
                                                         ),
                                                         focusNode: _model
-                                                            .nameFocusNode1,
+                                                            .nameEditFocusNode,
                                                         autofocus: false,
                                                         obscureText: false,
                                                         decoration:
@@ -1464,7 +1538,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                     context)
                                                                 .secondary,
                                                         validator: _model
-                                                            .nameTextController1Validator
+                                                            .nameEditTextControllerValidator
                                                             .asValidator(
                                                                 context),
                                                       ),
@@ -1475,14 +1549,14 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                       width: double.infinity,
                                                       child: TextFormField(
                                                         controller: _model
-                                                                .phoneNumberTextController1 ??=
+                                                                .phoneNumberEditTextController ??=
                                                             TextEditingController(
                                                           text:
                                                               columnPublicusersRow
                                                                   ?.phoneNumber,
                                                         ),
                                                         focusNode: _model
-                                                            .phoneNumberFocusNode1,
+                                                            .phoneNumberEditFocusNode,
                                                         autofocus: false,
                                                         obscureText: false,
                                                         decoration:
@@ -1583,7 +1657,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                     context)
                                                                 .secondary,
                                                         validator: _model
-                                                            .phoneNumberTextController1Validator
+                                                            .phoneNumberEditTextControllerValidator
                                                             .asValidator(
                                                                 context),
                                                       ),
@@ -1594,7 +1668,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                       width: double.infinity,
                                                       child: TextFormField(
                                                         controller: _model
-                                                                .ageTextController1 ??=
+                                                                .ageEditTextController ??=
                                                             TextEditingController(
                                                           text:
                                                               columnPublicusersRow
@@ -1602,7 +1676,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                   ?.toString(),
                                                         ),
                                                         focusNode: _model
-                                                            .ageFocusNode1,
+                                                            .ageEditFocusNode,
                                                         autofocus: false,
                                                         obscureText: false,
                                                         decoration:
@@ -1702,7 +1776,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                     context)
                                                                 .secondary,
                                                         validator: _model
-                                                            .ageTextController1Validator
+                                                            .ageEditTextControllerValidator
                                                             .asValidator(
                                                                 context),
                                                       ),
@@ -1715,111 +1789,115 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                       mainAxisAlignment:
                                                           MainAxisAlignment.end,
                                                       children: [
-                                                        FlutterFlowChoiceChips(
-                                                          options: const [
-                                                            ChipData('أخميم'),
-                                                            ChipData(
-                                                                'آبار الوقف أو الملك')
-                                                          ],
-                                                          onChanged: (val) =>
-                                                              safeSetState(() =>
-                                                                  _model.chipsAddressValue1 =
-                                                                      val?.firstOrNull),
-                                                          selectedChipStyle:
-                                                              ChipStyle(
-                                                            backgroundColor:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
-                                                            textStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Noto Kufi Arabic',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondaryBackground,
-                                                                      fontSize:
-                                                                          16.0,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                    ),
-                                                            iconColor:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .info,
-                                                            iconSize: 17.0,
-                                                            elevation: 0.0,
-                                                            borderColor:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondary,
-                                                            borderWidth: 2.0,
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8.0),
-                                                          ),
-                                                          unselectedChipStyle:
-                                                              ChipStyle(
-                                                            backgroundColor:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                            textStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Noto Kufi Arabic',
-                                                                      fontSize:
-                                                                          16.0,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                    ),
-                                                            iconColor:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText,
-                                                            iconSize: 14.0,
-                                                            elevation: 0.0,
-                                                            borderColor:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                            borderWidth: 2.0,
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8.0),
-                                                          ),
-                                                          chipSpacing: 8.0,
-                                                          rowSpacing: 8.0,
-                                                          multiselect: false,
-                                                          initialized: _model
-                                                                  .chipsAddressValue1 !=
-                                                              null,
-                                                          alignment:
-                                                              WrapAlignment
-                                                                  .start,
-                                                          controller: _model
-                                                                  .chipsAddressValueController1 ??=
-                                                              FormFieldController<
-                                                                  List<String>>(
-                                                            [
-                                                              columnPublicusersRow!
-                                                                  .address!
+                                                        Expanded(
+                                                          child:
+                                                              FlutterFlowChoiceChips(
+                                                            options: const [
+                                                              ChipData('أخميم'),
+                                                              ChipData(
+                                                                  'آبار الملك'),
+                                                              ChipData(
+                                                                  'آبار الوقف')
                                                             ],
-                                                          ),
-                                                          wrapped: false,
-                                                        ).animateOnPageLoad(
-                                                            animationsMap[
-                                                                'choiceChipsOnPageLoadAnimation']!),
+                                                            onChanged: (val) =>
+                                                                safeSetState(() =>
+                                                                    _model.chipsAddressEditValue =
+                                                                        val?.firstOrNull),
+                                                            selectedChipStyle:
+                                                                ChipStyle(
+                                                              backgroundColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                              textStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Noto Kufi Arabic',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .secondaryBackground,
+                                                                        fontSize:
+                                                                            16.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
+                                                              iconColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .info,
+                                                              iconSize: 15.0,
+                                                              elevation: 3.0,
+                                                              borderColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondary,
+                                                              borderWidth: 2.0,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          8.0),
+                                                            ),
+                                                            unselectedChipStyle:
+                                                                ChipStyle(
+                                                              backgroundColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                              textStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Noto Kufi Arabic',
+                                                                        fontSize:
+                                                                            15.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
+                                                              iconColor: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryText,
+                                                              iconSize: 14.0,
+                                                              elevation: 0.0,
+                                                              borderColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                              borderWidth: 2.0,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          8.0),
+                                                            ),
+                                                            chipSpacing: 7.0,
+                                                            rowSpacing: 8.0,
+                                                            multiselect: false,
+                                                            initialized: _model
+                                                                    .chipsAddressEditValue !=
+                                                                null,
+                                                            alignment:
+                                                                WrapAlignment
+                                                                    .start,
+                                                            controller: _model
+                                                                    .chipsAddressEditValueController ??=
+                                                                FormFieldController<
+                                                                    List<
+                                                                        String>>(
+                                                              [
+                                                                columnPublicusersRow!
+                                                                    .address!
+                                                              ],
+                                                            ),
+                                                            wrapped: false,
+                                                          ).animateOnPageLoad(
+                                                                  animationsMap[
+                                                                      'choiceChipsOnPageLoadAnimation1']!),
+                                                        ),
                                                         GradientText(
-                                                          'اختر العنوان ',
+                                                          ' العنوان ',
                                                           textAlign:
                                                               TextAlign.end,
                                                           style: FlutterFlowTheme
@@ -1858,10 +1936,10 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                         FlutterFlowDropDown<
                                                             String>(
                                                           controller: _model
-                                                                  .chooseTheWorkValueController1 ??=
+                                                                  .chooseTheWorkEditValueController ??=
                                                               FormFieldController<
                                                                   String>(
-                                                            _model.chooseTheWorkValue1 ??=
+                                                            _model.chooseTheWorkEditValue ??=
                                                                 columnPublicusersRow
                                                                     ?.theWork,
                                                           ),
@@ -1870,7 +1948,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                             'نجار',
                                                             'نقاش',
                                                             'بناء',
-                                                            'محار',
+                                                            'مبيض محارة',
                                                             'سائق',
                                                             'كهربائي',
                                                             'مركب سيراميك',
@@ -1878,7 +1956,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                           ],
                                                           onChanged: (val) =>
                                                               safeSetState(() =>
-                                                                  _model.chooseTheWorkValue1 =
+                                                                  _model.chooseTheWorkEditValue =
                                                                       val),
                                                           width: 200.0,
                                                           height: 40.0,
@@ -1966,14 +2044,14 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                           width: 200.0,
                                                           child: TextFormField(
                                                             controller: _model
-                                                                    .yearsOfExpertTextController1 ??=
+                                                                    .yearsOfExpertEditTextController ??=
                                                                 TextEditingController(
                                                               text: columnPublicusersRow
                                                                   ?.yearsExperience
                                                                   ?.toString(),
                                                             ),
                                                             focusNode: _model
-                                                                .yearsOfExpertFocusNode1,
+                                                                .yearsOfExpertEditFocusNode,
                                                             autofocus: false,
                                                             obscureText: false,
                                                             decoration:
@@ -2072,7 +2150,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                         context)
                                                                     .secondary,
                                                             validator: _model
-                                                                .yearsOfExpertTextController1Validator
+                                                                .yearsOfExpertEditTextControllerValidator
                                                                 .asValidator(
                                                                     context),
                                                           ),
@@ -2119,14 +2197,14 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                           width: 200.0,
                                                           child: TextFormField(
                                                             controller: _model
-                                                                    .priceForDayTextController1 ??=
+                                                                    .priceForDayEditTextController ??=
                                                                 TextEditingController(
                                                               text: columnPublicusersRow
                                                                   ?.priceInDay
                                                                   ?.toString(),
                                                             ),
                                                             focusNode: _model
-                                                                .priceForDayFocusNode1,
+                                                                .priceForDayEditFocusNode,
                                                             autofocus: false,
                                                             obscureText: false,
                                                             decoration:
@@ -2227,7 +2305,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                         context)
                                                                     .secondary,
                                                             validator: _model
-                                                                .priceForDayTextController1Validator
+                                                                .priceForDayEditTextControllerValidator
                                                                 .asValidator(
                                                                     context),
                                                           ),
@@ -2264,6 +2342,274 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                     ).animateOnPageLoad(
                                                         animationsMap[
                                                             'rowOnPageLoadAnimation5']!),
+                                                    Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment.end,
+                                                      children: [
+                                                        Expanded(
+                                                          child: Align(
+                                                            alignment:
+                                                                const AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child:
+                                                                FlutterFlowChoiceChips(
+                                                              options: const [
+                                                                ChipData(
+                                                                    'مشغول '),
+                                                                ChipData(
+                                                                    'جاهز للعمل')
+                                                              ],
+                                                              onChanged: (val) =>
+                                                                  safeSetState(() =>
+                                                                      _model.chipsStateEditValue =
+                                                                          val?.firstOrNull),
+                                                              selectedChipStyle:
+                                                                  ChipStyle(
+                                                                backgroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                textStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Noto Kufi Arabic',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryBackground,
+                                                                      fontSize:
+                                                                          16.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                                iconColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .info,
+                                                                iconSize: 15.0,
+                                                                elevation: 3.0,
+                                                                borderColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondary,
+                                                                borderWidth:
+                                                                    2.0,
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8.0),
+                                                              ),
+                                                              unselectedChipStyle:
+                                                                  ChipStyle(
+                                                                backgroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryBackground,
+                                                                textStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Noto Kufi Arabic',
+                                                                      fontSize:
+                                                                          15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                                iconColor: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                                iconSize: 14.0,
+                                                                elevation: 0.0,
+                                                                borderColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryBackground,
+                                                                borderWidth:
+                                                                    2.0,
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8.0),
+                                                              ),
+                                                              chipSpacing: 20.0,
+                                                              rowSpacing: 8.0,
+                                                              multiselect:
+                                                                  false,
+                                                              initialized: _model
+                                                                      .chipsStateEditValue !=
+                                                                  null,
+                                                              alignment:
+                                                                  WrapAlignment
+                                                                      .start,
+                                                              controller: _model
+                                                                      .chipsStateEditValueController ??=
+                                                                  FormFieldController<
+                                                                      List<
+                                                                          String>>(
+                                                                [
+                                                                  columnPublicusersRow!
+                                                                      .state!
+                                                                ],
+                                                              ),
+                                                              wrapped: false,
+                                                            ).animateOnPageLoad(
+                                                                    animationsMap[
+                                                                        'choiceChipsOnPageLoadAnimation2']!),
+                                                          ),
+                                                        ),
+                                                        GradientText(
+                                                          ' الحالة ',
+                                                          textAlign:
+                                                              TextAlign.end,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .titleMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Kufi Arabic',
+                                                                fontSize: 16.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                          colors: [
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                            const Color(0xFF3C39D2)
+                                                          ],
+                                                          gradientDirection:
+                                                              GradientDirection
+                                                                  .rtl,
+                                                          gradientType:
+                                                              GradientType
+                                                                  .linear,
+                                                        ).animateOnPageLoad(
+                                                            animationsMap[
+                                                                'textOnPageLoadAnimation2']!),
+                                                      ].divide(const SizedBox(
+                                                          width: 20.0)),
+                                                    ),
+                                                    SizedBox(
+                                                      width: double.infinity,
+                                                      child: TextFormField(
+                                                        controller: _model
+                                                                .moreDetailEditTextController ??=
+                                                            TextEditingController(
+                                                          text:
+                                                              columnPublicusersRow
+                                                                  ?.moreDetail,
+                                                        ),
+                                                        focusNode: _model
+                                                            .moreDetailEditFocusNode,
+                                                        autofocus: false,
+                                                        obscureText: false,
+                                                        decoration:
+                                                            InputDecoration(
+                                                          isDense: true,
+                                                          hintText:
+                                                              'الاسم ثلاثي',
+                                                          hintStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Noto Kufi Arabic',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryText,
+                                                                    fontSize:
+                                                                        16.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                          enabledBorder:
+                                                              OutlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondary,
+                                                              width: 2.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                          ),
+                                                          focusedBorder:
+                                                              OutlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondary,
+                                                              width: 2.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                          ),
+                                                          errorBorder:
+                                                              OutlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .error,
+                                                              width: 2.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                          ),
+                                                          focusedErrorBorder:
+                                                              OutlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .error,
+                                                              width: 2.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                          ),
+                                                          filled: true,
+                                                        ),
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .titleMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Noto Kufi Arabic',
+                                                              fontSize: 16.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                            ),
+                                                        textAlign:
+                                                            TextAlign.end,
+                                                        maxLines: 8,
+                                                        minLines: 1,
+                                                        maxLength: 1000,
+                                                        cursorColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
+                                                        validator: _model
+                                                            .moreDetailEditTextControllerValidator
+                                                            .asValidator(
+                                                                context),
+                                                      ),
+                                                    ),
                                                     Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
@@ -2297,7 +2643,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                             return;
                                                           }
                                                           if (_model
-                                                                  .chooseTheWorkValue1 ==
+                                                                  .chooseTheWorkEditValue ==
                                                               null) {
                                                             _model.formchangeok =
                                                                 false;
@@ -2317,27 +2663,33 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                         ?.imgUrl,
                                                                 'phone_number':
                                                                     _model
-                                                                        .phoneNumberTextController1
+                                                                        .phoneNumberEditTextController
                                                                         .text,
                                                                 'name': _model
-                                                                    .nameTextController1
+                                                                    .nameEditTextController
                                                                     .text,
                                                                 'age': int.tryParse(
                                                                     _model
-                                                                        .ageTextController1
+                                                                        .ageEditTextController
                                                                         .text),
                                                                 'address': _model
-                                                                    .chipsAddressValue1,
+                                                                    .chipsAddressEditValue,
                                                                 'the_work': _model
-                                                                    .chooseTheWorkValue1,
+                                                                    .chooseTheWorkEditValue,
                                                                 'years_experience':
                                                                     int.tryParse(_model
-                                                                        .yearsOfExpertTextController1
+                                                                        .yearsOfExpertEditTextController
                                                                         .text),
                                                                 'price_in_day':
                                                                     double.tryParse(_model
-                                                                        .priceForDayTextController1
+                                                                        .priceForDayEditTextController
                                                                         .text),
+                                                                'state': _model
+                                                                    .chipsStateEditValue,
+                                                                'more_detail':
+                                                                    _model
+                                                                        .moreDetailEditTextController
+                                                                        .text,
                                                               },
                                                               matchingRows:
                                                                   (rows) => rows
@@ -2940,9 +3292,9 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                 width: double.infinity,
                                                 child: TextFormField(
                                                   controller: _model
-                                                      .nameTextController2,
+                                                      .nameCTextController,
                                                   focusNode:
-                                                      _model.nameFocusNode2,
+                                                      _model.nameCFocusNode,
                                                   autofocus: false,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
@@ -3028,7 +3380,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                               context)
                                                           .secondary,
                                                   validator: _model
-                                                      .nameTextController2Validator
+                                                      .nameCTextControllerValidator
                                                       .asValidator(context),
                                                 ),
                                               ).animateOnPageLoad(animationsMap[
@@ -3037,9 +3389,9 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                 width: double.infinity,
                                                 child: TextFormField(
                                                   controller: _model
-                                                      .phoneNumberTextController2,
+                                                      .phoneNumberCTextController,
                                                   focusNode: _model
-                                                      .phoneNumberFocusNode2,
+                                                      .phoneNumberCFocusNode,
                                                   autofocus: false,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
@@ -3126,7 +3478,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                               context)
                                                           .secondary,
                                                   validator: _model
-                                                      .phoneNumberTextController2Validator
+                                                      .phoneNumberCTextControllerValidator
                                                       .asValidator(context),
                                                 ),
                                               ).animateOnPageLoad(animationsMap[
@@ -3135,9 +3487,9 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                 width: double.infinity,
                                                 child: TextFormField(
                                                   controller:
-                                                      _model.ageTextController2,
+                                                      _model.ageCTextController,
                                                   focusNode:
-                                                      _model.ageFocusNode2,
+                                                      _model.ageCFocusNode,
                                                   autofocus: false,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
@@ -3225,23 +3577,25 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                               context)
                                                           .secondary,
                                                   validator: _model
-                                                      .ageTextController2Validator
+                                                      .ageCTextControllerValidator
                                                       .asValidator(context),
                                                 ),
                                               ).animateOnPageLoad(animationsMap[
                                                   'textFieldOnPageLoadAnimation6']!),
                                               Row(
                                                 mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.end,
                                                 children: [
                                                   FlutterFlowChoiceChips(
                                                     options: const [
                                                       ChipData('أخميم'),
-                                                      ChipData(
-                                                          'آبار الوقف أو الملك')
+                                                      ChipData('آبار الملك'),
+                                                      ChipData('آبار الوقف')
                                                     ],
                                                     onChanged: (val) =>
                                                         safeSetState(() => _model
-                                                                .chipsAddressValue2 =
+                                                                .chipsAddressCValue =
                                                             val?.firstOrNull),
                                                     selectedChipStyle:
                                                         ChipStyle(
@@ -3259,7 +3613,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .secondaryBackground,
-                                                                fontSize: 16.0,
+                                                                fontSize: 15.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -3267,7 +3621,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .info,
-                                                      iconSize: 19.0,
+                                                      iconSize: 10.0,
                                                       elevation: 0.0,
                                                       borderColor:
                                                           FlutterFlowTheme.of(
@@ -3291,7 +3645,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Kufi Arabic',
-                                                                fontSize: 16.0,
+                                                                fontSize: 15.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -3310,24 +3664,24 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                           BorderRadius.circular(
                                                               8.0),
                                                     ),
-                                                    chipSpacing: 12.0,
+                                                    chipSpacing: 7.0,
                                                     rowSpacing: 8.0,
                                                     multiselect: false,
                                                     initialized: _model
-                                                            .chipsAddressValue2 !=
+                                                            .chipsAddressCValue !=
                                                         null,
                                                     alignment:
                                                         WrapAlignment.start,
                                                     controller: _model
-                                                            .chipsAddressValueController2 ??=
+                                                            .chipsAddressCValueController ??=
                                                         FormFieldController<
                                                             List<String>>(
-                                                      ['آبار الوقف أو الملك'],
+                                                      ['آبار الوقف'],
                                                     ),
                                                     wrapped: false,
                                                   ),
                                                   Text(
-                                                    'اختر العنوان ',
+                                                    ' العنوان ',
                                                     textAlign: TextAlign.end,
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -3335,11 +3689,11 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                         .override(
                                                           fontFamily:
                                                               'Noto Kufi Arabic',
-                                                          fontSize: 16.0,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
-                                                ],
+                                                ].divide(const SizedBox(width: 5.0)),
                                               ).animateOnPageLoad(animationsMap[
                                                   'rowOnPageLoadAnimation6']!),
                                               Row(
@@ -3349,7 +3703,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                 children: [
                                                   FlutterFlowDropDown<String>(
                                                     controller: _model
-                                                            .chooseTheWorkValueController2 ??=
+                                                            .chooseTheWorkCValueController ??=
                                                         FormFieldController<
                                                             String>(null),
                                                     options: const [
@@ -3365,7 +3719,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                     ],
                                                     onChanged: (val) =>
                                                         safeSetState(() => _model
-                                                                .chooseTheWorkValue2 =
+                                                                .chooseTheWorkCValue =
                                                             val),
                                                     width: 200.0,
                                                     height: 40.0,
@@ -3426,9 +3780,9 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                 width: double.infinity,
                                                 child: TextFormField(
                                                   controller: _model
-                                                      .yearsOfExpertTextController2,
+                                                      .yearsOfExpertCTextController,
                                                   focusNode: _model
-                                                      .yearsOfExpertFocusNode2,
+                                                      .yearsOfExpertCFocusNode,
                                                   autofocus: false,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
@@ -3517,7 +3871,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                               context)
                                                           .secondary,
                                                   validator: _model
-                                                      .yearsOfExpertTextController2Validator
+                                                      .yearsOfExpertCTextControllerValidator
                                                       .asValidator(context),
                                                 ),
                                               ).animateOnPageLoad(animationsMap[
@@ -3526,9 +3880,9 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                 width: double.infinity,
                                                 child: TextFormField(
                                                   controller: _model
-                                                      .priceForDayTextController2,
+                                                      .priceForDayCTextController,
                                                   focusNode: _model
-                                                      .priceForDayFocusNode2,
+                                                      .priceForDayCFocusNode,
                                                   autofocus: false,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
@@ -3618,11 +3972,239 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                               context)
                                                           .secondary,
                                                   validator: _model
-                                                      .priceForDayTextController2Validator
+                                                      .priceForDayCTextControllerValidator
                                                       .asValidator(context),
                                                 ),
                                               ).animateOnPageLoad(animationsMap[
                                                   'textFieldOnPageLoadAnimation8']!),
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Expanded(
+                                                    child:
+                                                        FlutterFlowChoiceChips(
+                                                      options: const [
+                                                        ChipData('مشغول'),
+                                                        ChipData('جاهز للعمل')
+                                                      ],
+                                                      onChanged: (val) =>
+                                                          safeSetState(() => _model
+                                                                  .chipsStateCValue =
+                                                              val?.firstOrNull),
+                                                      selectedChipStyle:
+                                                          ChipStyle(
+                                                        backgroundColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        textStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Kufi Arabic',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                                  fontSize:
+                                                                      16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                        iconColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .info,
+                                                        iconSize: 19.0,
+                                                        elevation: 0.0,
+                                                        borderColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
+                                                        borderWidth: 2.0,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                      unselectedChipStyle:
+                                                          ChipStyle(
+                                                        backgroundColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryBackground,
+                                                        textStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Kufi Arabic',
+                                                                  fontSize:
+                                                                      16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                        iconColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        iconSize: 16.0,
+                                                        elevation: 0.0,
+                                                        borderColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryBackground,
+                                                        borderWidth: 2.0,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                      chipSpacing: 14.0,
+                                                      rowSpacing: 8.0,
+                                                      multiselect: false,
+                                                      initialized: _model
+                                                              .chipsStateCValue !=
+                                                          null,
+                                                      alignment:
+                                                          WrapAlignment.start,
+                                                      controller: _model
+                                                              .chipsStateCValueController ??=
+                                                          FormFieldController<
+                                                              List<String>>(
+                                                        ['جاهز للعمل'],
+                                                      ),
+                                                      wrapped: false,
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    'اختر  ',
+                                                    textAlign: TextAlign.end,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .titleMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Kufi Arabic',
+                                                          fontSize: 16.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                ],
+                                              ).animateOnPageLoad(animationsMap[
+                                                  'rowOnPageLoadAnimation8']!),
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.end,
+                                                children: [
+                                                  Text(
+                                                    'اكتب تفاصيل أكثر  ',
+                                                    textAlign: TextAlign.end,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .titleMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Kufi Arabic',
+                                                          fontSize: 16.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                ],
+                                              ).animateOnPageLoad(animationsMap[
+                                                  'rowOnPageLoadAnimation9']!),
+                                              SizedBox(
+                                                width: double.infinity,
+                                                child: TextFormField(
+                                                  controller: _model
+                                                      .moreDetailedCTextController,
+                                                  focusNode: _model
+                                                      .moreDetailedCFocusNode,
+                                                  autofocus: false,
+                                                  obscureText: false,
+                                                  decoration: InputDecoration(
+                                                    isDense: true,
+                                                    enabledBorder:
+                                                        OutlineInputBorder(
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
+                                                        width: 2.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8.0),
+                                                    ),
+                                                    focusedBorder:
+                                                        OutlineInputBorder(
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
+                                                        width: 2.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8.0),
+                                                    ),
+                                                    errorBorder:
+                                                        OutlineInputBorder(
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .error,
+                                                        width: 2.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8.0),
+                                                    ),
+                                                    focusedErrorBorder:
+                                                        OutlineInputBorder(
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .error,
+                                                        width: 2.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8.0),
+                                                    ),
+                                                    filled: true,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .titleMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Kufi Arabic',
+                                                        fontSize: 16.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                  textAlign: TextAlign.end,
+                                                  maxLines: 8,
+                                                  minLines: 1,
+                                                  maxLength: 1000,
+                                                  maxLengthEnforcement:
+                                                      MaxLengthEnforcement.none,
+                                                  cursorColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondary,
+                                                  validator: _model
+                                                      .moreDetailedCTextControllerValidator
+                                                      .asValidator(context),
+                                                ),
+                                              ),
                                               FFButtonWidget(
                                                 onPressed: () async {
                                                   if (animationsMap[
@@ -3654,7 +4236,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                     return;
                                                   }
                                                   if (_model
-                                                          .chooseTheWorkValue2 ==
+                                                          .chooseTheWorkCValue ==
                                                       null) {
                                                     _model.formregisteringok =
                                                         false;
@@ -3670,26 +4252,31 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                       'img_url': _model
                                                           .uploadedFileUrl2,
                                                       'phone_number': _model
-                                                          .phoneNumberTextController2
+                                                          .phoneNumberCTextController
                                                           .text,
                                                       'name': _model
-                                                          .nameTextController2
+                                                          .nameCTextController
                                                           .text,
                                                       'age': int.tryParse(_model
-                                                          .ageTextController2
+                                                          .ageCTextController
                                                           .text),
                                                       'address': _model
-                                                          .chipsAddressValue2,
+                                                          .chipsAddressCValue,
                                                       'the_work': _model
-                                                          .chooseTheWorkValue2,
+                                                          .chooseTheWorkCValue,
                                                       'years_experience':
                                                           int.tryParse(_model
-                                                              .yearsOfExpertTextController2
+                                                              .yearsOfExpertCTextController
                                                               .text),
                                                       'price_in_day':
                                                           double.tryParse(_model
-                                                              .priceForDayTextController2
+                                                              .priceForDayCTextController
                                                               .text),
+                                                      'state': _model
+                                                          .chipsStateCValue,
+                                                      'more_detail': _model
+                                                          .moreDetailedCTextController
+                                                          .text,
                                                     });
                                                     ScaffoldMessenger.of(
                                                             context)
@@ -3975,9 +4562,9 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller: _model
-                                                  .phoneNumberTextController3,
+                                                  .phoneNumberTextController,
                                               focusNode:
-                                                  _model.phoneNumberFocusNode3,
+                                                  _model.phoneNumberFocusNode,
                                               autofocus: false,
                                               obscureText: false,
                                               decoration: InputDecoration(
@@ -4060,7 +4647,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .secondary,
                                               validator: _model
-                                                  .phoneNumberTextController3Validator
+                                                  .phoneNumberTextControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ).animateOnPageLoad(animationsMap[
@@ -4326,7 +4913,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                 final user = await authManager
                                                     .createAccountWithEmail(
                                                   context,
-                                                  'a${_model.phoneNumberTextController1.text}@gmail.com',
+                                                  'a${_model.phoneNumberEditTextController.text}@gmail.com',
                                                   _model.passwordTextController
                                                       .text,
                                                 );
@@ -4478,7 +5065,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                     GradientType.linear,
                                               ),
                                             ).animateOnPageLoad(animationsMap[
-                                                'textOnPageLoadAnimation2']!),
+                                                'textOnPageLoadAnimation3']!),
                                           ),
                                         ]
                                             .divide(const SizedBox(height: 20.0))

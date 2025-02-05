@@ -315,9 +315,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                   context.safePop();
                 },
                 child: Icon(
-                  Icons.arrow_back,
+                  Icons.chevron_left,
                   color: FlutterFlowTheme.of(context).primaryBackground,
-                  size: 35.0,
+                  size: 40.0,
                 ),
               ),
             ),

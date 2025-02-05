@@ -29,7 +29,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
 
     _model.tabBarController = TabController(
       vsync: this,
-      length: 2,
+      length: 3,
       initialIndex: 1,
     )..addListener(() => safeSetState(() {}));
     animationsMap.addAll({
@@ -238,6 +238,114 @@ class _HomePageWidgetState extends State<HomePageWidget>
         ],
       ),
       'columnOnPageLoadAnimation18': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'columnOnPageLoadAnimation19': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 1200.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'columnOnPageLoadAnimation20': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 600.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'columnOnPageLoadAnimation21': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'columnOnPageLoadAnimation22': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 1200.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'columnOnPageLoadAnimation23': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 600.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'columnOnPageLoadAnimation24': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'columnOnPageLoadAnimation25': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 1200.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'columnOnPageLoadAnimation26': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 600.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'columnOnPageLoadAnimation27': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           FadeEffect(
@@ -524,12 +632,15 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             text: ' أخميم',
                           ),
                           Tab(
-                            text: 'آبار الوقف والملك',
+                            text: 'آبار الملك',
+                          ),
+                          Tab(
+                            text: 'آبار الوقف',
                           ),
                         ],
                         controller: _model.tabBarController,
                         onTap: (i) async {
-                          [() async {}, () async {}][i]();
+                          [() async {}, () async {}, () async {}][i]();
                         },
                       ),
                     ),
@@ -860,7 +971,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                 ParamType.String,
                                               ),
                                               'thework': serializeParam(
-                                                'محار',
+                                                'مبيض محارة',
                                                 ParamType.String,
                                               ),
                                             }.withoutNulls,
@@ -889,7 +1000,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                               ),
                                             ),
                                             GradientText(
-                                              'محار',
+                                              'مبيض محارة',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .labelLarge
@@ -1213,7 +1324,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   GradientText(
-                                    'آبار الوقف والملك',
+                                    'آبار الملك',
                                     style: FlutterFlowTheme.of(context)
                                         .labelLarge
                                         .override(
@@ -1242,7 +1353,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                             'show_data-of_workers',
                                             queryParameters: {
                                               'address': serializeParam(
-                                                'آبار الوقف أو الملك',
+                                                'آبار الملك',
                                                 ParamType.String,
                                               ),
                                               'thework': serializeParam(
@@ -1311,7 +1422,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                             'show_data-of_workers',
                                             queryParameters: {
                                               'address': serializeParam(
-                                                'آبار الوقف أو الملك',
+                                                'آبار الملك',
                                                 ParamType.String,
                                               ),
                                               'thework': serializeParam(
@@ -1380,7 +1491,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                             'show_data-of_workers',
                                             queryParameters: {
                                               'address': serializeParam(
-                                                'آبار الوقف أو الملك',
+                                                'آبار الملك',
                                                 ParamType.String,
                                               ),
                                               'thework': serializeParam(
@@ -1455,7 +1566,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                             'show_data-of_workers',
                                             queryParameters: {
                                               'address': serializeParam(
-                                                'آبار الوقف أو الملك',
+                                                'آبار الملك',
                                                 ParamType.String,
                                               ),
                                               'thework': serializeParam(
@@ -1524,11 +1635,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                             'show_data-of_workers',
                                             queryParameters: {
                                               'address': serializeParam(
-                                                'آبار الوقف أو الملك',
+                                                'آبار الملك',
                                                 ParamType.String,
                                               ),
                                               'thework': serializeParam(
-                                                'محار',
+                                                'مبيض محارة',
                                                 ParamType.String,
                                               ),
                                             }.withoutNulls,
@@ -1557,7 +1668,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                               ),
                                             ),
                                             GradientText(
-                                              'محار',
+                                              'مبيض محارة',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .labelLarge
@@ -1593,7 +1704,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                             'show_data-of_workers',
                                             queryParameters: {
                                               'address': serializeParam(
-                                                'آبار الوقف أو الملك',
+                                                'آبار الملك',
                                                 ParamType.String,
                                               ),
                                               'thework': serializeParam(
@@ -1668,7 +1779,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                             'show_data-of_workers',
                                             queryParameters: {
                                               'address': serializeParam(
-                                                'آبار الوقف أو الملك',
+                                                'آبار الملك',
                                                 ParamType.String,
                                               ),
                                               'thework': serializeParam(
@@ -1737,7 +1848,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                             'show_data-of_workers',
                                             queryParameters: {
                                               'address': serializeParam(
-                                                'آبار الوقف أو الملك',
+                                                'آبار الملك',
                                                 ParamType.String,
                                               ),
                                               'thework': serializeParam(
@@ -1806,7 +1917,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                             'show_data-of_workers',
                                             queryParameters: {
                                               'address': serializeParam(
-                                                'آبار الوقف أو الملك',
+                                                'آبار الملك',
                                                 ParamType.String,
                                               ),
                                               'thework': serializeParam(
@@ -1865,6 +1976,674 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                         ),
                                       ).animateOnPageLoad(animationsMap[
                                           'columnOnPageLoadAnimation18']!),
+                                    ].divide(const SizedBox(width: 20.0)),
+                                  ),
+                                ]
+                                    .divide(const SizedBox(height: 20.0))
+                                    .around(const SizedBox(height: 20.0)),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                10.0, 0.0, 10.0, 0.0),
+                            child: SingleChildScrollView(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  GradientText(
+                                    'آبار الوقف',
+                                    style: FlutterFlowTheme.of(context)
+                                        .labelLarge
+                                        .override(
+                                          fontFamily: 'Noto Kufi Arabic',
+                                          letterSpacing: 0.0,
+                                        ),
+                                    colors: [
+                                      FlutterFlowTheme.of(context).primary,
+                                      const Color(0xFF394ED2),
+                                      FlutterFlowTheme.of(context).secondary
+                                    ],
+                                    gradientDirection: GradientDirection.rtl,
+                                    gradientType: GradientType.linear,
+                                  ),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context.pushNamed(
+                                            'show_data-of_workers',
+                                            queryParameters: {
+                                              'address': serializeParam(
+                                                'آبار الوقف',
+                                                ParamType.String,
+                                              ),
+                                              'thework': serializeParam(
+                                                'نجار',
+                                                ParamType.String,
+                                              ),
+                                            }.withoutNulls,
+                                            extra: <String, dynamic>{
+                                              kTransitionInfoKey:
+                                                  const TransitionInfo(
+                                                hasTransition: true,
+                                                transitionType:
+                                                    PageTransitionType
+                                                        .leftToRight,
+                                              ),
+                                            },
+                                          );
+                                        },
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              child: Image.asset(
+                                                'assets/images/banna.jpeg',
+                                                width: 100.0,
+                                                height: 90.0,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                            GradientText(
+                                              'نجار',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelLarge
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Kufi Arabic',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              colors: [
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                                const Color(0xFF394ED2),
+                                                FlutterFlowTheme.of(context)
+                                                    .secondary
+                                              ],
+                                              gradientDirection:
+                                                  GradientDirection.rtl,
+                                              gradientType: GradientType.linear,
+                                            ),
+                                          ]
+                                              .divide(const SizedBox(height: 4.0))
+                                              .addToEnd(const SizedBox(height: 2.0)),
+                                        ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'columnOnPageLoadAnimation19']!),
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context.pushNamed(
+                                            'show_data-of_workers',
+                                            queryParameters: {
+                                              'address': serializeParam(
+                                                'آبار الوقف',
+                                                ParamType.String,
+                                              ),
+                                              'thework': serializeParam(
+                                                'نقاش',
+                                                ParamType.String,
+                                              ),
+                                            }.withoutNulls,
+                                            extra: <String, dynamic>{
+                                              kTransitionInfoKey:
+                                                  const TransitionInfo(
+                                                hasTransition: true,
+                                                transitionType:
+                                                    PageTransitionType
+                                                        .leftToRight,
+                                              ),
+                                            },
+                                          );
+                                        },
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              child: Image.asset(
+                                                'assets/images/s.jpeg',
+                                                width: 100.0,
+                                                height: 90.0,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                            GradientText(
+                                              'نقاش',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelLarge
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Kufi Arabic',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              colors: [
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                                const Color(0xFF394ED2),
+                                                FlutterFlowTheme.of(context)
+                                                    .secondary
+                                              ],
+                                              gradientDirection:
+                                                  GradientDirection.rtl,
+                                              gradientType: GradientType.linear,
+                                            ),
+                                          ]
+                                              .divide(const SizedBox(height: 4.0))
+                                              .addToEnd(const SizedBox(height: 2.0)),
+                                        ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'columnOnPageLoadAnimation20']!),
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context.pushNamed(
+                                            'show_data-of_workers',
+                                            queryParameters: {
+                                              'address': serializeParam(
+                                                'آبار الوقف',
+                                                ParamType.String,
+                                              ),
+                                              'thework': serializeParam(
+                                                'سباك',
+                                                ParamType.String,
+                                              ),
+                                            }.withoutNulls,
+                                            extra: <String, dynamic>{
+                                              kTransitionInfoKey:
+                                                  const TransitionInfo(
+                                                hasTransition: true,
+                                                transitionType:
+                                                    PageTransitionType
+                                                        .leftToRight,
+                                              ),
+                                            },
+                                          );
+                                        },
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              child: Image.asset(
+                                                'assets/images/sbaka2.jpeg',
+                                                width: 100.0,
+                                                height: 90.0,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                            GradientText(
+                                              'سباك',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelLarge
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Kufi Arabic',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              colors: [
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                                const Color(0xFF394ED2),
+                                                FlutterFlowTheme.of(context)
+                                                    .secondary
+                                              ],
+                                              gradientDirection:
+                                                  GradientDirection.rtl,
+                                              gradientType: GradientType.linear,
+                                            ),
+                                          ]
+                                              .divide(const SizedBox(height: 4.0))
+                                              .addToEnd(const SizedBox(height: 2.0)),
+                                        ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'columnOnPageLoadAnimation21']!),
+                                    ].divide(const SizedBox(width: 20.0)),
+                                  ),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context.pushNamed(
+                                            'show_data-of_workers',
+                                            queryParameters: {
+                                              'address': serializeParam(
+                                                'آبار الوقف',
+                                                ParamType.String,
+                                              ),
+                                              'thework': serializeParam(
+                                                'سائق',
+                                                ParamType.String,
+                                              ),
+                                            }.withoutNulls,
+                                            extra: <String, dynamic>{
+                                              kTransitionInfoKey:
+                                                  const TransitionInfo(
+                                                hasTransition: true,
+                                                transitionType:
+                                                    PageTransitionType
+                                                        .leftToRight,
+                                              ),
+                                            },
+                                          );
+                                        },
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              child: Image.asset(
+                                                'assets/images/driver.jpeg',
+                                                width: 100.0,
+                                                height: 90.0,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                            GradientText(
+                                              'سائق',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelLarge
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Kufi Arabic',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              colors: [
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                                const Color(0xFF394ED2),
+                                                FlutterFlowTheme.of(context)
+                                                    .secondary
+                                              ],
+                                              gradientDirection:
+                                                  GradientDirection.rtl,
+                                              gradientType: GradientType.linear,
+                                            ),
+                                          ]
+                                              .divide(const SizedBox(height: 4.0))
+                                              .addToEnd(const SizedBox(height: 2.0)),
+                                        ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'columnOnPageLoadAnimation22']!),
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context.pushNamed(
+                                            'show_data-of_workers',
+                                            queryParameters: {
+                                              'address': serializeParam(
+                                                'آبار الوقف',
+                                                ParamType.String,
+                                              ),
+                                              'thework': serializeParam(
+                                                'مبيض محارة',
+                                                ParamType.String,
+                                              ),
+                                            }.withoutNulls,
+                                            extra: <String, dynamic>{
+                                              kTransitionInfoKey:
+                                                  const TransitionInfo(
+                                                hasTransition: true,
+                                                transitionType:
+                                                    PageTransitionType
+                                                        .leftToRight,
+                                              ),
+                                            },
+                                          );
+                                        },
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              child: Image.asset(
+                                                'assets/images/mahara.jpeg',
+                                                width: 100.0,
+                                                height: 90.0,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                            GradientText(
+                                              'مبيض محارة',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelLarge
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Kufi Arabic',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              colors: [
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                                const Color(0xFF394ED2),
+                                                FlutterFlowTheme.of(context)
+                                                    .secondary
+                                              ],
+                                              gradientDirection:
+                                                  GradientDirection.rtl,
+                                              gradientType: GradientType.linear,
+                                            ),
+                                          ]
+                                              .divide(const SizedBox(height: 4.0))
+                                              .addToEnd(const SizedBox(height: 2.0)),
+                                        ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'columnOnPageLoadAnimation23']!),
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context.pushNamed(
+                                            'show_data-of_workers',
+                                            queryParameters: {
+                                              'address': serializeParam(
+                                                'آبار الوقف',
+                                                ParamType.String,
+                                              ),
+                                              'thework': serializeParam(
+                                                'بناء',
+                                                ParamType.String,
+                                              ),
+                                            }.withoutNulls,
+                                            extra: <String, dynamic>{
+                                              kTransitionInfoKey:
+                                                  const TransitionInfo(
+                                                hasTransition: true,
+                                                transitionType:
+                                                    PageTransitionType
+                                                        .leftToRight,
+                                              ),
+                                            },
+                                          );
+                                        },
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              child: Image.asset(
+                                                'assets/images/a.jpeg',
+                                                width: 100.0,
+                                                height: 90.0,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                            GradientText(
+                                              'بناء',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelLarge
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Kufi Arabic',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              colors: [
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                                const Color(0xFF394ED2),
+                                                FlutterFlowTheme.of(context)
+                                                    .secondary
+                                              ],
+                                              gradientDirection:
+                                                  GradientDirection.rtl,
+                                              gradientType: GradientType.linear,
+                                            ),
+                                          ]
+                                              .divide(const SizedBox(height: 4.0))
+                                              .addToEnd(const SizedBox(height: 2.0)),
+                                        ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'columnOnPageLoadAnimation24']!),
+                                    ].divide(const SizedBox(width: 20.0)),
+                                  ),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context.pushNamed(
+                                            'show_data-of_workers',
+                                            queryParameters: {
+                                              'address': serializeParam(
+                                                'آبار الوقف',
+                                                ParamType.String,
+                                              ),
+                                              'thework': serializeParam(
+                                                'عامل',
+                                                ParamType.String,
+                                              ),
+                                            }.withoutNulls,
+                                            extra: <String, dynamic>{
+                                              kTransitionInfoKey:
+                                                  const TransitionInfo(
+                                                hasTransition: true,
+                                                transitionType:
+                                                    PageTransitionType
+                                                        .leftToRight,
+                                              ),
+                                            },
+                                          );
+                                        },
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              child: Image.asset(
+                                                'assets/images/upfct_w.png',
+                                                width: 100.0,
+                                                height: 90.0,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                            GradientText(
+                                              'عامل',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelLarge
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Kufi Arabic',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              colors: [
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                                const Color(0xFF394ED2),
+                                                FlutterFlowTheme.of(context)
+                                                    .secondary
+                                              ],
+                                              gradientDirection:
+                                                  GradientDirection.rtl,
+                                              gradientType: GradientType.linear,
+                                            ),
+                                          ]
+                                              .divide(const SizedBox(height: 4.0))
+                                              .addToEnd(const SizedBox(height: 2.0)),
+                                        ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'columnOnPageLoadAnimation25']!),
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context.pushNamed(
+                                            'show_data-of_workers',
+                                            queryParameters: {
+                                              'address': serializeParam(
+                                                'آبار الوقف',
+                                                ParamType.String,
+                                              ),
+                                              'thework': serializeParam(
+                                                'مركب سيراميك',
+                                                ParamType.String,
+                                              ),
+                                            }.withoutNulls,
+                                            extra: <String, dynamic>{
+                                              kTransitionInfoKey:
+                                                  const TransitionInfo(
+                                                hasTransition: true,
+                                                transitionType:
+                                                    PageTransitionType
+                                                        .leftToRight,
+                                              ),
+                                            },
+                                          );
+                                        },
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              child: Image.asset(
+                                                'assets/images/seramik.jpeg',
+                                                width: 100.0,
+                                                height: 90.0,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                            GradientText(
+                                              'مركب سيراميك',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelLarge
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Kufi Arabic',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              colors: [
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                                const Color(0xFF394ED2),
+                                                FlutterFlowTheme.of(context)
+                                                    .secondary
+                                              ],
+                                              gradientDirection:
+                                                  GradientDirection.rtl,
+                                              gradientType: GradientType.linear,
+                                            ),
+                                          ]
+                                              .divide(const SizedBox(height: 4.0))
+                                              .addToEnd(const SizedBox(height: 2.0)),
+                                        ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'columnOnPageLoadAnimation26']!),
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context.pushNamed(
+                                            'show_data-of_workers',
+                                            queryParameters: {
+                                              'address': serializeParam(
+                                                'آبار الوقف',
+                                                ParamType.String,
+                                              ),
+                                              'thework': serializeParam(
+                                                'كهربائي',
+                                                ParamType.String,
+                                              ),
+                                            }.withoutNulls,
+                                            extra: <String, dynamic>{
+                                              kTransitionInfoKey:
+                                                  const TransitionInfo(
+                                                hasTransition: true,
+                                                transitionType:
+                                                    PageTransitionType
+                                                        .leftToRight,
+                                              ),
+                                            },
+                                          );
+                                        },
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              child: Image.asset(
+                                                'assets/images/kahrbaee.jpeg',
+                                                width: 100.0,
+                                                height: 90.0,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                            GradientText(
+                                              'كهربائي',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelLarge
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Kufi Arabic',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              colors: [
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                                const Color(0xFF394ED2),
+                                                FlutterFlowTheme.of(context)
+                                                    .secondary
+                                              ],
+                                              gradientDirection:
+                                                  GradientDirection.rtl,
+                                              gradientType: GradientType.linear,
+                                            ),
+                                          ]
+                                              .divide(const SizedBox(height: 4.0))
+                                              .addToEnd(const SizedBox(height: 2.0)),
+                                        ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'columnOnPageLoadAnimation27']!),
                                     ].divide(const SizedBox(width: 20.0)),
                                   ),
                                 ]

@@ -21,11 +21,11 @@ class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl1 = '';
 
-  // State field(s) for name widget.
-  FocusNode? nameFocusNode1;
-  TextEditingController? nameTextController1;
-  String? Function(BuildContext, String?)? nameTextController1Validator;
-  String? _nameTextController1Validator(BuildContext context, String? val) {
+  // State field(s) for name_edit widget.
+  FocusNode? nameEditFocusNode;
+  TextEditingController? nameEditTextController;
+  String? Function(BuildContext, String?)? nameEditTextControllerValidator;
+  String? _nameEditTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'اكتب الاسم';
     }
@@ -37,21 +37,22 @@ class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
     return null;
   }
 
-  // State field(s) for phone_number widget.
-  FocusNode? phoneNumberFocusNode1;
-  TextEditingController? phoneNumberTextController1;
-  String? Function(BuildContext, String?)? phoneNumberTextController1Validator;
-  String? _phoneNumberTextController1Validator(
+  // State field(s) for phone_number_edit widget.
+  FocusNode? phoneNumberEditFocusNode;
+  TextEditingController? phoneNumberEditTextController;
+  String? Function(BuildContext, String?)?
+      phoneNumberEditTextControllerValidator;
+  String? _phoneNumberEditTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'يجب إدخال رقم الهاتف';
     }
 
     if (val.length < 11) {
-      return 'اكتب رقم الهاتف بشكل صحيح';
+      return 'رقم الهاتف يجب أن يكون ١١ رقم';
     }
     if (val.length > 11) {
-      return 'اكتب رقم الهاتف بشكل صحيح';
+      return 'رقم الهاتف يجب أن يكون ١١ رقم';
     }
     if (!RegExp('^[0-9]+\$').hasMatch(val)) {
       return 'اكتب رقم الهاتف بالانجليزية';
@@ -59,11 +60,11 @@ class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
     return null;
   }
 
-  // State field(s) for age widget.
-  FocusNode? ageFocusNode1;
-  TextEditingController? ageTextController1;
-  String? Function(BuildContext, String?)? ageTextController1Validator;
-  String? _ageTextController1Validator(BuildContext context, String? val) {
+  // State field(s) for age_edit widget.
+  FocusNode? ageEditFocusNode;
+  TextEditingController? ageEditTextController;
+  String? Function(BuildContext, String?)? ageEditTextControllerValidator;
+  String? _ageEditTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'اكتب عمرك';
     }
@@ -78,21 +79,21 @@ class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
     return null;
   }
 
-  // State field(s) for Chips_address widget.
-  FormFieldController<List<String>>? chipsAddressValueController1;
-  String? get chipsAddressValue1 =>
-      chipsAddressValueController1?.value?.firstOrNull;
-  set chipsAddressValue1(String? val) =>
-      chipsAddressValueController1?.value = val != null ? [val] : [];
-  // State field(s) for choose_the_work widget.
-  String? chooseTheWorkValue1;
-  FormFieldController<String>? chooseTheWorkValueController1;
-  // State field(s) for years_of_expert widget.
-  FocusNode? yearsOfExpertFocusNode1;
-  TextEditingController? yearsOfExpertTextController1;
+  // State field(s) for Chips_address_edit widget.
+  FormFieldController<List<String>>? chipsAddressEditValueController;
+  String? get chipsAddressEditValue =>
+      chipsAddressEditValueController?.value?.firstOrNull;
+  set chipsAddressEditValue(String? val) =>
+      chipsAddressEditValueController?.value = val != null ? [val] : [];
+  // State field(s) for choose_the_work_edit widget.
+  String? chooseTheWorkEditValue;
+  FormFieldController<String>? chooseTheWorkEditValueController;
+  // State field(s) for years_of_expert_edit widget.
+  FocusNode? yearsOfExpertEditFocusNode;
+  TextEditingController? yearsOfExpertEditTextController;
   String? Function(BuildContext, String?)?
-      yearsOfExpertTextController1Validator;
-  String? _yearsOfExpertTextController1Validator(
+      yearsOfExpertEditTextControllerValidator;
+  String? _yearsOfExpertEditTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'ادخل عدد سنوات الخبرة';
@@ -108,11 +109,12 @@ class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
     return null;
   }
 
-  // State field(s) for price_for_day widget.
-  FocusNode? priceForDayFocusNode1;
-  TextEditingController? priceForDayTextController1;
-  String? Function(BuildContext, String?)? priceForDayTextController1Validator;
-  String? _priceForDayTextController1Validator(
+  // State field(s) for price_for_day_edit widget.
+  FocusNode? priceForDayEditFocusNode;
+  TextEditingController? priceForDayEditTextController;
+  String? Function(BuildContext, String?)?
+      priceForDayEditTextControllerValidator;
+  String? _priceForDayEditTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'ادخل سعر اليومية';
@@ -128,18 +130,29 @@ class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
     return null;
   }
 
-  // Stores action output result for [Validate Form] action in change_data_but widget.
+  // State field(s) for Chips_state_edit widget.
+  FormFieldController<List<String>>? chipsStateEditValueController;
+  String? get chipsStateEditValue =>
+      chipsStateEditValueController?.value?.firstOrNull;
+  set chipsStateEditValue(String? val) =>
+      chipsStateEditValueController?.value = val != null ? [val] : [];
+  // State field(s) for more_detail_edit widget.
+  FocusNode? moreDetailEditFocusNode;
+  TextEditingController? moreDetailEditTextController;
+  String? Function(BuildContext, String?)?
+      moreDetailEditTextControllerValidator;
+  // Stores action output result for [Validate Form] action in change_data_but_edit widget.
   bool? formchangeok;
   bool isDataUploading2 = false;
   FFUploadedFile uploadedLocalFile2 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl2 = '';
 
-  // State field(s) for name widget.
-  FocusNode? nameFocusNode2;
-  TextEditingController? nameTextController2;
-  String? Function(BuildContext, String?)? nameTextController2Validator;
-  String? _nameTextController2Validator(BuildContext context, String? val) {
+  // State field(s) for name_c widget.
+  FocusNode? nameCFocusNode;
+  TextEditingController? nameCTextController;
+  String? Function(BuildContext, String?)? nameCTextControllerValidator;
+  String? _nameCTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'اكتب الاسم';
     }
@@ -151,11 +164,11 @@ class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
     return null;
   }
 
-  // State field(s) for phone_number widget.
-  FocusNode? phoneNumberFocusNode2;
-  TextEditingController? phoneNumberTextController2;
-  String? Function(BuildContext, String?)? phoneNumberTextController2Validator;
-  String? _phoneNumberTextController2Validator(
+  // State field(s) for phone_number_c widget.
+  FocusNode? phoneNumberCFocusNode;
+  TextEditingController? phoneNumberCTextController;
+  String? Function(BuildContext, String?)? phoneNumberCTextControllerValidator;
+  String? _phoneNumberCTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'يجب إدخال رقم الهاتف';
@@ -173,11 +186,11 @@ class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
     return null;
   }
 
-  // State field(s) for age widget.
-  FocusNode? ageFocusNode2;
-  TextEditingController? ageTextController2;
-  String? Function(BuildContext, String?)? ageTextController2Validator;
-  String? _ageTextController2Validator(BuildContext context, String? val) {
+  // State field(s) for age_c widget.
+  FocusNode? ageCFocusNode;
+  TextEditingController? ageCTextController;
+  String? Function(BuildContext, String?)? ageCTextControllerValidator;
+  String? _ageCTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'اكتب عمرك';
     }
@@ -192,21 +205,21 @@ class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
     return null;
   }
 
-  // State field(s) for Chips_address widget.
-  FormFieldController<List<String>>? chipsAddressValueController2;
-  String? get chipsAddressValue2 =>
-      chipsAddressValueController2?.value?.firstOrNull;
-  set chipsAddressValue2(String? val) =>
-      chipsAddressValueController2?.value = val != null ? [val] : [];
-  // State field(s) for choose_the_work widget.
-  String? chooseTheWorkValue2;
-  FormFieldController<String>? chooseTheWorkValueController2;
-  // State field(s) for years_of_expert widget.
-  FocusNode? yearsOfExpertFocusNode2;
-  TextEditingController? yearsOfExpertTextController2;
+  // State field(s) for Chips_address_c widget.
+  FormFieldController<List<String>>? chipsAddressCValueController;
+  String? get chipsAddressCValue =>
+      chipsAddressCValueController?.value?.firstOrNull;
+  set chipsAddressCValue(String? val) =>
+      chipsAddressCValueController?.value = val != null ? [val] : [];
+  // State field(s) for choose_the_work_c widget.
+  String? chooseTheWorkCValue;
+  FormFieldController<String>? chooseTheWorkCValueController;
+  // State field(s) for years_of_expert_c widget.
+  FocusNode? yearsOfExpertCFocusNode;
+  TextEditingController? yearsOfExpertCTextController;
   String? Function(BuildContext, String?)?
-      yearsOfExpertTextController2Validator;
-  String? _yearsOfExpertTextController2Validator(
+      yearsOfExpertCTextControllerValidator;
+  String? _yearsOfExpertCTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'ادخل عدد سنوات الخبرة';
@@ -218,11 +231,11 @@ class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
     return null;
   }
 
-  // State field(s) for price_for_day widget.
-  FocusNode? priceForDayFocusNode2;
-  TextEditingController? priceForDayTextController2;
-  String? Function(BuildContext, String?)? priceForDayTextController2Validator;
-  String? _priceForDayTextController2Validator(
+  // State field(s) for price_for_day_c widget.
+  FocusNode? priceForDayCFocusNode;
+  TextEditingController? priceForDayCTextController;
+  String? Function(BuildContext, String?)? priceForDayCTextControllerValidator;
+  String? _priceForDayCTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'ادخل سعر اليومية';
@@ -234,15 +247,25 @@ class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
     return null;
   }
 
-  // Stores action output result for [Validate Form] action in register_button widget.
+  // State field(s) for Chips_State_c widget.
+  FormFieldController<List<String>>? chipsStateCValueController;
+  String? get chipsStateCValue =>
+      chipsStateCValueController?.value?.firstOrNull;
+  set chipsStateCValue(String? val) =>
+      chipsStateCValueController?.value = val != null ? [val] : [];
+  // State field(s) for more_detailed_c widget.
+  FocusNode? moreDetailedCFocusNode;
+  TextEditingController? moreDetailedCTextController;
+  String? Function(BuildContext, String?)? moreDetailedCTextControllerValidator;
+  // Stores action output result for [Validate Form] action in register_button_c widget.
   bool? formregisteringok;
-  // Stores action output result for [Backend Call - Insert Row] action in register_button widget.
+  // Stores action output result for [Backend Call - Insert Row] action in register_button_c widget.
   PublicusersRow? datainserted;
   // State field(s) for phoneNumber widget.
-  FocusNode? phoneNumberFocusNode3;
-  TextEditingController? phoneNumberTextController3;
-  String? Function(BuildContext, String?)? phoneNumberTextController3Validator;
-  String? _phoneNumberTextController3Validator(
+  FocusNode? phoneNumberFocusNode;
+  TextEditingController? phoneNumberTextController;
+  String? Function(BuildContext, String?)? phoneNumberTextControllerValidator;
+  String? _phoneNumberTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'اكتب الايميل بالانجليزية';
@@ -307,19 +330,21 @@ class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
 
   @override
   void initState(BuildContext context) {
-    nameTextController1Validator = _nameTextController1Validator;
-    phoneNumberTextController1Validator = _phoneNumberTextController1Validator;
-    ageTextController1Validator = _ageTextController1Validator;
-    yearsOfExpertTextController1Validator =
-        _yearsOfExpertTextController1Validator;
-    priceForDayTextController1Validator = _priceForDayTextController1Validator;
-    nameTextController2Validator = _nameTextController2Validator;
-    phoneNumberTextController2Validator = _phoneNumberTextController2Validator;
-    ageTextController2Validator = _ageTextController2Validator;
-    yearsOfExpertTextController2Validator =
-        _yearsOfExpertTextController2Validator;
-    priceForDayTextController2Validator = _priceForDayTextController2Validator;
-    phoneNumberTextController3Validator = _phoneNumberTextController3Validator;
+    nameEditTextControllerValidator = _nameEditTextControllerValidator;
+    phoneNumberEditTextControllerValidator =
+        _phoneNumberEditTextControllerValidator;
+    ageEditTextControllerValidator = _ageEditTextControllerValidator;
+    yearsOfExpertEditTextControllerValidator =
+        _yearsOfExpertEditTextControllerValidator;
+    priceForDayEditTextControllerValidator =
+        _priceForDayEditTextControllerValidator;
+    nameCTextControllerValidator = _nameCTextControllerValidator;
+    phoneNumberCTextControllerValidator = _phoneNumberCTextControllerValidator;
+    ageCTextControllerValidator = _ageCTextControllerValidator;
+    yearsOfExpertCTextControllerValidator =
+        _yearsOfExpertCTextControllerValidator;
+    priceForDayCTextControllerValidator = _priceForDayCTextControllerValidator;
+    phoneNumberTextControllerValidator = _phoneNumberTextControllerValidator;
     passwordVisibility = false;
     passwordTextControllerValidator = _passwordTextControllerValidator;
     confirmpasswordVisibility = false;
@@ -329,38 +354,44 @@ class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
 
   @override
   void dispose() {
-    nameFocusNode1?.dispose();
-    nameTextController1?.dispose();
+    nameEditFocusNode?.dispose();
+    nameEditTextController?.dispose();
 
-    phoneNumberFocusNode1?.dispose();
-    phoneNumberTextController1?.dispose();
+    phoneNumberEditFocusNode?.dispose();
+    phoneNumberEditTextController?.dispose();
 
-    ageFocusNode1?.dispose();
-    ageTextController1?.dispose();
+    ageEditFocusNode?.dispose();
+    ageEditTextController?.dispose();
 
-    yearsOfExpertFocusNode1?.dispose();
-    yearsOfExpertTextController1?.dispose();
+    yearsOfExpertEditFocusNode?.dispose();
+    yearsOfExpertEditTextController?.dispose();
 
-    priceForDayFocusNode1?.dispose();
-    priceForDayTextController1?.dispose();
+    priceForDayEditFocusNode?.dispose();
+    priceForDayEditTextController?.dispose();
 
-    nameFocusNode2?.dispose();
-    nameTextController2?.dispose();
+    moreDetailEditFocusNode?.dispose();
+    moreDetailEditTextController?.dispose();
 
-    phoneNumberFocusNode2?.dispose();
-    phoneNumberTextController2?.dispose();
+    nameCFocusNode?.dispose();
+    nameCTextController?.dispose();
 
-    ageFocusNode2?.dispose();
-    ageTextController2?.dispose();
+    phoneNumberCFocusNode?.dispose();
+    phoneNumberCTextController?.dispose();
 
-    yearsOfExpertFocusNode2?.dispose();
-    yearsOfExpertTextController2?.dispose();
+    ageCFocusNode?.dispose();
+    ageCTextController?.dispose();
 
-    priceForDayFocusNode2?.dispose();
-    priceForDayTextController2?.dispose();
+    yearsOfExpertCFocusNode?.dispose();
+    yearsOfExpertCTextController?.dispose();
 
-    phoneNumberFocusNode3?.dispose();
-    phoneNumberTextController3?.dispose();
+    priceForDayCFocusNode?.dispose();
+    priceForDayCTextController?.dispose();
+
+    moreDetailedCFocusNode?.dispose();
+    moreDetailedCTextController?.dispose();
+
+    phoneNumberFocusNode?.dispose();
+    phoneNumberTextController?.dispose();
 
     passwordFocusNode?.dispose();
     passwordTextController?.dispose();

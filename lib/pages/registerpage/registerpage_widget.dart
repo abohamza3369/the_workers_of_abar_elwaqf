@@ -294,6 +294,34 @@ class _RegisterpageWidgetState extends State<RegisterpageWidget>
         appBar: AppBar(
           backgroundColor: const Color(0xFF2CBC9C),
           automaticallyImplyLeading: false,
+          leading: Align(
+            alignment: const AlignmentDirectional(0.0, 0.0),
+            child: Padding(
+              padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 10.0),
+              child: InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () async {
+                  context.pushNamed(
+                    'HomePage',
+                    extra: <String, dynamic>{
+                      kTransitionInfoKey: const TransitionInfo(
+                        hasTransition: true,
+                        transitionType: PageTransitionType.leftToRight,
+                      ),
+                    },
+                  );
+                },
+                child: Icon(
+                  Icons.chevron_left_sharp,
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                  size: 40.0,
+                ),
+              ),
+            ),
+          ),
           title: Text(
             'إنشاء حساب',
             textAlign: TextAlign.center,

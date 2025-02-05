@@ -1,4 +1,4 @@
-# test the phone in the workers app
+# the workers register by phone number
 
 A new Flutter project.
 

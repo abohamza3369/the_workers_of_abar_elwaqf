@@ -1,8 +1,10 @@
 import '/backend/supabase/supabase.dart';
+import '/components/the_list_is_empty_component_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:lottie/lottie.dart';
@@ -302,7 +304,7 @@ class _ShowDataOfWorkersWidgetState extends State<ShowDataOfWorkersWidget> {
                 child: Icon(
                   Icons.chevron_left_outlined,
                   color: FlutterFlowTheme.of(context).secondaryBackground,
-                  size: 36.0,
+                  size: 40.0,
                 ),
               ),
             ),
@@ -319,16 +321,16 @@ class _ShowDataOfWorkersWidgetState extends State<ShowDataOfWorkersWidget> {
                 return 'السائقين';
               } else if (widget.thework == 'بناء') {
                 return 'البنائين';
-              } else if (widget.thework == 'محار') {
-                return 'المحارين';
               } else if (widget.thework == 'كهربائي') {
                 return 'الكهربائيين';
               } else if (widget.thework == 'مركب سيراميك') {
                 return 'مركبي السيراميك';
               } else if (widget.thework == 'عامل') {
                 return 'العمال';
+              } else if (widget.thework == 'مبيض محارة') {
+                return 'مبيضي المحارة';
               } else {
-                return 'السباكين';
+                return 'العمال';
               }
             }(),
             textAlign: TextAlign.center,
@@ -345,90 +347,120 @@ class _ShowDataOfWorkersWidgetState extends State<ShowDataOfWorkersWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Expanded(
-                  child: Builder(
-                    builder: (context) {
-                      if (FFAppState().isinternetconnected) {
-                        return Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              10.0, 10.0, 10.0, 0.0),
-                          child: FutureBuilder<List<PublicusersRow>>(
-                            future: PublicusersTable().queryRows(
-                              queryFn: (q) => q
-                                  .eqOrNull(
-                                    'the_work',
-                                    widget.thework,
-                                  )
-                                  .eqOrNull(
-                                    'address',
-                                    widget.address,
-                                  )
-                                  .order('years_experience'),
-                            ),
-                            builder: (context, snapshot) {
-                              // Customize what your widget looks like when it's loading.
-                              if (!snapshot.hasData) {
-                                return Center(
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 200.0, 0.0, 0.0),
-                                    child: SizedBox(
-                                      width: 50.0,
-                                      height: 50.0,
-                                      child: CircularProgressIndicator(
-                                        valueColor:
-                                            AlwaysStoppedAnimation<Color>(
-                                          FlutterFlowTheme.of(context).primary,
-                                        ),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Expanded(
+                child: Builder(
+                  builder: (context) {
+                    if (FFAppState().isinternetconnected) {
+                      return Padding(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            10.0, 10.0, 10.0, 0.0),
+                        child: FutureBuilder<List<PublicusersRow>>(
+                          future: PublicusersTable().queryRows(
+                            queryFn: (q) => q
+                                .eqOrNull(
+                                  'the_work',
+                                  widget.thework,
+                                )
+                                .eqOrNull(
+                                  'address',
+                                  widget.address,
+                                )
+                                .order('years_experience'),
+                          ),
+                          builder: (context, snapshot) {
+                            // Customize what your widget looks like when it's loading.
+                            if (!snapshot.hasData) {
+                              return Center(
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 200.0, 0.0, 0.0),
+                                  child: SizedBox(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    child: CircularProgressIndicator(
+                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                        FlutterFlowTheme.of(context).primary,
                                       ),
                                     ),
                                   ),
-                                );
-                              }
-                              List<PublicusersRow> gridViewPublicusersRowList =
-                                  snapshot.data!;
+                                ),
+                              );
+                            }
+                            List<PublicusersRow> gridViewPublicusersRowList =
+                                snapshot.data!;
 
-                              return GridView.builder(
-                                padding: const EdgeInsets.fromLTRB(
-                                  0,
-                                  0,
-                                  0,
-                                  10.0,
+                            if (gridViewPublicusersRowList.isEmpty) {
+                              return const Center(
+                                child: SizedBox(
+                                  width: double.infinity,
+                                  height: 300.0,
+                                  child: TheListIsEmptyComponentWidget(),
                                 ),
-                                gridDelegate:
-                                    const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 2,
-                                  crossAxisSpacing: 10.0,
-                                  mainAxisSpacing: 10.0,
-                                  childAspectRatio: 0.73,
-                                ),
-                                shrinkWrap: true,
-                                scrollDirection: Axis.vertical,
-                                itemCount: gridViewPublicusersRowList.length,
-                                itemBuilder: (context, gridViewIndex) {
-                                  final gridViewPublicusersRow =
-                                      gridViewPublicusersRowList[gridViewIndex];
-                                  return Material(
-                                    color: Colors.transparent,
-                                    elevation: 2.0,
-                                    shape: RoundedRectangleBorder(
+                              );
+                            }
+
+                            return GridView.builder(
+                              padding: const EdgeInsets.fromLTRB(
+                                0,
+                                0,
+                                0,
+                                10.0,
+                              ),
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                crossAxisSpacing: 10.0,
+                                mainAxisSpacing: 10.0,
+                                childAspectRatio: 0.73,
+                              ),
+                              shrinkWrap: true,
+                              scrollDirection: Axis.vertical,
+                              itemCount: gridViewPublicusersRowList.length,
+                              itemBuilder: (context, gridViewIndex) {
+                                final gridViewPublicusersRow =
+                                    gridViewPublicusersRowList[gridViewIndex];
+                                return Material(
+                                  color: Colors.transparent,
+                                  elevation: 2.0,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
                                       borderRadius: BorderRadius.circular(8.0),
-                                    ),
-                                    child: Container(
-                                      decoration: BoxDecoration(
+                                      border: Border.all(
                                         color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        border: Border.all(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondary,
-                                        ),
+                                            .secondary,
                                       ),
+                                    ),
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        context.pushNamed(
+                                          'all_information_of_worker',
+                                          queryParameters: {
+                                            'id': serializeParam(
+                                              gridViewPublicusersRow.id,
+                                              ParamType.String,
+                                            ),
+                                          }.withoutNulls,
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: const TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType: PageTransitionType
+                                                  .leftToRight,
+                                            ),
+                                          },
+                                        );
+                                      },
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -440,21 +472,27 @@ class _ShowDataOfWorkersWidgetState extends State<ShowDataOfWorkersWidget> {
                                               borderRadius:
                                                   BorderRadius.circular(8.0),
                                             ),
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                              child: Image.network(
-                                                gridViewPublicusersRow.imgUrl!,
-                                                width: double.infinity,
-                                                height: 123.0,
-                                                fit: BoxFit.cover,
-                                                errorBuilder: (context, error,
-                                                        stackTrace) =>
-                                                    Image.asset(
-                                                  'assets/images/error_image.png',
+                                            child: Hero(
+                                              tag: gridViewPublicusersRow
+                                                  .imgUrl!,
+                                              transitionOnUserGestures: true,
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                                child: Image.network(
+                                                  gridViewPublicusersRow
+                                                      .imgUrl!,
                                                   width: double.infinity,
                                                   height: 123.0,
                                                   fit: BoxFit.cover,
+                                                  errorBuilder: (context, error,
+                                                          stackTrace) =>
+                                                      Image.asset(
+                                                    'assets/images/error_image.png',
+                                                    width: double.infinity,
+                                                    height: 123.0,
+                                                    fit: BoxFit.cover,
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -462,15 +500,14 @@ class _ShowDataOfWorkersWidgetState extends State<ShowDataOfWorkersWidget> {
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    5.0, 0.0, 5.0, 0.0),
+                                                    4.0, 0.0, 4.0, 0.0),
                                             child: SelectionArea(
                                                 child: GradientText(
                                               valueOrDefault<String>(
                                                 gridViewPublicusersRow.name,
                                                 'name',
                                               ).maybeHandleOverflow(
-                                                maxChars: 19,
-                                                replacement: '…',
+                                                maxChars: 16,
                                               ),
                                               textAlign: TextAlign.end,
                                               style:
@@ -479,7 +516,7 @@ class _ShowDataOfWorkersWidgetState extends State<ShowDataOfWorkersWidget> {
                                                       .override(
                                                         fontFamily:
                                                             'Noto Kufi Arabic',
-                                                        fontSize: 16.0,
+                                                        fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                       ),
                                               colors: [
@@ -508,6 +545,8 @@ class _ShowDataOfWorkersWidgetState extends State<ShowDataOfWorkersWidget> {
                                                         .priceInDay
                                                         ?.toString(),
                                                     'جنيه',
+                                                  ).maybeHandleOverflow(
+                                                    maxChars: 5,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -573,6 +612,8 @@ class _ShowDataOfWorkersWidgetState extends State<ShowDataOfWorkersWidget> {
                                                         .yearsExperience
                                                         ?.toString(),
                                                     '1',
+                                                  ).maybeHandleOverflow(
+                                                    maxChars: 3,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -644,11 +685,41 @@ class _ShowDataOfWorkersWidgetState extends State<ShowDataOfWorkersWidget> {
                                                                   4.0),
                                                       child: FFButtonWidget(
                                                         onPressed: () async {
-                                                          await launchUrl(Uri(
-                                                            scheme: 'tel',
-                                                            path: gridViewPublicusersRow
-                                                                .phoneNumber!,
-                                                          ));
+                                                          if (kDebugMode) {
+                                                            ScaffoldMessenger
+                                                                    .of(context)
+                                                                .showSnackBar(
+                                                              SnackBar(
+                                                                content: Text(
+                                                                  'you are im debug mode can\'t call with any phone',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Comic Neue',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .secondaryBackground,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
+                                                                ),
+                                                                duration: const Duration(
+                                                                    milliseconds:
+                                                                        4000),
+                                                                backgroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondary,
+                                                              ),
+                                                            );
+                                                          } else {
+                                                            await launchUrl(Uri(
+                                                              scheme: 'tel',
+                                                              path: gridViewPublicusersRow
+                                                                  .phoneNumber!,
+                                                            ));
+                                                          }
                                                         },
                                                         text: '',
                                                         icon: Icon(
@@ -708,109 +779,109 @@ class _ShowDataOfWorkersWidgetState extends State<ShowDataOfWorkersWidget> {
                                             .addToEnd(const SizedBox(height: 2.0)),
                                       ),
                                     ),
-                                  );
-                                },
-                              );
-                            },
-                          ),
-                        );
-                      } else {
-                        return Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              20.0, 0.0, 20.0, 0.0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Container(
-                                width: double.infinity,
-                                height: 200.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                ),
-                                child: Lottie.asset(
-                                  'assets/jsons/Animation_-_no_internet.json',
-                                  width: 200.0,
-                                  height: 200.0,
-                                  fit: BoxFit.contain,
-                                  animate: true,
-                                ),
+                                  ),
+                                );
+                              },
+                            );
+                          },
+                        ),
+                      );
+                    } else {
+                      return Padding(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            20.0, 0.0, 20.0, 0.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Container(
+                              width: double.infinity,
+                              height: 200.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
                               ),
-                              GradientText(
-                                'للأسف  الهاتف غير  متصل  بالإنترنت\nاتصل بالانترنت ثم اضغط هذا الزر',
-                                textAlign: TextAlign.end,
-                                style: FlutterFlowTheme.of(context)
+                              child: Lottie.asset(
+                                'assets/jsons/Animation_-_no_internet.json',
+                                width: 200.0,
+                                height: 200.0,
+                                fit: BoxFit.contain,
+                                animate: true,
+                              ),
+                            ),
+                            GradientText(
+                              'للأسف  الهاتف غير  متصل  بالإنترنت\nاتصل بالانترنت ثم اضغط هذا الزر',
+                              textAlign: TextAlign.end,
+                              style: FlutterFlowTheme.of(context)
+                                  .titleMedium
+                                  .override(
+                                    fontFamily: 'Noto Kufi Arabic',
+                                    letterSpacing: 0.0,
+                                  ),
+                              colors: [
+                                FlutterFlowTheme.of(context).primary,
+                                const Color(0xFF3952D2),
+                                FlutterFlowTheme.of(context).secondary
+                              ],
+                              gradientDirection: GradientDirection.rtl,
+                              gradientType: GradientType.linear,
+                            ),
+                            FFButtonWidget(
+                              onPressed: () async {
+                                context.pushNamed(
+                                  'show_data-of_workers',
+                                  queryParameters: {
+                                    'address': serializeParam(
+                                      widget.address,
+                                      ParamType.String,
+                                    ),
+                                    'thework': serializeParam(
+                                      widget.thework,
+                                      ParamType.String,
+                                    ),
+                                  }.withoutNulls,
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: const TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType: PageTransitionType.fade,
+                                    ),
+                                  },
+                                );
+                              },
+                              text: 'تحديث الصفحة',
+                              icon: const Icon(
+                                Icons.refresh_outlined,
+                                size: 22.0,
+                              ),
+                              options: FFButtonOptions(
+                                height: 40.0,
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 16.0, 0.0),
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: FlutterFlowTheme.of(context).primary,
+                                textStyle: FlutterFlowTheme.of(context)
                                     .titleMedium
                                     .override(
                                       fontFamily: 'Noto Kufi Arabic',
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      fontSize: 16.0,
                                       letterSpacing: 0.0,
                                     ),
-                                colors: [
-                                  FlutterFlowTheme.of(context).primary,
-                                  const Color(0xFF3952D2),
-                                  FlutterFlowTheme.of(context).secondary
-                                ],
-                                gradientDirection: GradientDirection.rtl,
-                                gradientType: GradientType.linear,
+                                elevation: 0.0,
+                                borderRadius: BorderRadius.circular(8.0),
                               ),
-                              FFButtonWidget(
-                                onPressed: () async {
-                                  context.pushNamed(
-                                    'show_data-of_workers',
-                                    queryParameters: {
-                                      'address': serializeParam(
-                                        widget.address,
-                                        ParamType.String,
-                                      ),
-                                      'thework': serializeParam(
-                                        widget.thework,
-                                        ParamType.String,
-                                      ),
-                                    }.withoutNulls,
-                                    extra: <String, dynamic>{
-                                      kTransitionInfoKey: const TransitionInfo(
-                                        hasTransition: true,
-                                        transitionType: PageTransitionType.fade,
-                                      ),
-                                    },
-                                  );
-                                },
-                                text: 'تحديث الصفحة',
-                                icon: const Icon(
-                                  Icons.refresh_outlined,
-                                  size: 22.0,
-                                ),
-                                options: FFButtonOptions(
-                                  height: 40.0,
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 0.0, 16.0, 0.0),
-                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: FlutterFlowTheme.of(context).primary,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleMedium
-                                      .override(
-                                        fontFamily: 'Noto Kufi Arabic',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                      ),
-                                  elevation: 0.0,
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                              ),
-                            ]
-                                .divide(const SizedBox(height: 20.0))
-                                .around(const SizedBox(height: 20.0)),
-                          ),
-                        );
-                      }
-                    },
-                  ),
+                            ),
+                          ]
+                              .divide(const SizedBox(height: 20.0))
+                              .around(const SizedBox(height: 20.0)),
+                        ),
+                      );
+                    }
+                  },
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
