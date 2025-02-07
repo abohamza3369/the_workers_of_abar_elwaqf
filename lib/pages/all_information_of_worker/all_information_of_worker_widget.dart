@@ -1,9 +1,12 @@
 import '/backend/supabase/supabase.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'all_information_of_worker_model.dart';
 export 'all_information_of_worker_model.dart';
@@ -22,15 +25,152 @@ class AllInformationOfWorkerWidget extends StatefulWidget {
 }
 
 class _AllInformationOfWorkerWidgetState
-    extends State<AllInformationOfWorkerWidget> {
+    extends State<AllInformationOfWorkerWidget> with TickerProviderStateMixin {
   late AllInformationOfWorkerModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => AllInformationOfWorkerModel());
+
+    animationsMap.addAll({
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-MediaQuery.sizeOf(context).width - 100, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 300.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-MediaQuery.sizeOf(context).width - 100, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 600.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-MediaQuery.sizeOf(context).width - 100, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 900.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-MediaQuery.sizeOf(context).width - 100, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 1200.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-MediaQuery.sizeOf(context).width - 100, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation5': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 1500.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-MediaQuery.sizeOf(context).width - 100, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation6': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 1800.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-MediaQuery.sizeOf(context).width - 100, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation7': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 2000.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-MediaQuery.sizeOf(context).width - 100, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation8': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 2000.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-MediaQuery.sizeOf(context).width - 100, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation9': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 2000.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-MediaQuery.sizeOf(context).width - 100, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation10': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 2000.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-MediaQuery.sizeOf(context).width - 100, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -296,7 +436,7 @@ class _AllInformationOfWorkerWidgetState
         body: SafeArea(
           top: true,
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 30.0),
             child: FutureBuilder<List<PublicusersRow>>(
               future: PublicusersTable().querySingleRow(
                 queryFn: (q) => q.eqOrNull(
@@ -365,22 +505,28 @@ class _AllInformationOfWorkerWidgetState
                                   width: 2.0,
                                 ),
                               ),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(99.0),
-                                child: Image.network(
-                                  columnPublicusersRow!.imgUrl!,
-                                  width: 200.0,
-                                  height: 200.0,
-                                  fit: BoxFit.cover,
-                                  errorBuilder: (context, error, stackTrace) =>
-                                      Image.asset(
-                                    'assets/images/error_image.png',
+                              child: Hero(
+                                tag: columnPublicusersRow!.imgUrl!,
+                                transitionOnUserGestures: true,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(99.0),
+                                  child: Image.network(
+                                    columnPublicusersRow.imgUrl!,
                                     width: 200.0,
                                     height: 200.0,
                                     fit: BoxFit.cover,
+                                    errorBuilder:
+                                        (context, error, stackTrace) =>
+                                            Image.asset(
+                                      'assets/images/error_image.png',
+                                      width: 200.0,
+                                      height: 200.0,
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
                                 ),
-                              ),
+                              ).animateOnPageLoad(
+                                  animationsMap['imageOnPageLoadAnimation']!),
                             ),
                           ),
                         ],
@@ -434,7 +580,8 @@ class _AllInformationOfWorkerWidgetState
                             ],
                           ),
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['containerOnPageLoadAnimation1']!),
                       Material(
                         color: Colors.transparent,
                         elevation: 4.0,
@@ -496,7 +643,8 @@ class _AllInformationOfWorkerWidgetState
                             ].divide(const SizedBox(width: 10.0)),
                           ),
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['containerOnPageLoadAnimation2']!),
                       Material(
                         color: Colors.transparent,
                         elevation: 4.0,
@@ -546,7 +694,8 @@ class _AllInformationOfWorkerWidgetState
                             ],
                           ),
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['containerOnPageLoadAnimation3']!),
                       Material(
                         color: Colors.transparent,
                         elevation: 4.0,
@@ -596,7 +745,8 @@ class _AllInformationOfWorkerWidgetState
                             ],
                           ),
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['containerOnPageLoadAnimation4']!),
                       Material(
                         color: Colors.transparent,
                         elevation: 4.0,
@@ -671,7 +821,8 @@ class _AllInformationOfWorkerWidgetState
                             ].divide(const SizedBox(width: 10.0)),
                           ),
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['containerOnPageLoadAnimation5']!),
                       Material(
                         color: Colors.transparent,
                         elevation: 4.0,
@@ -745,7 +896,8 @@ class _AllInformationOfWorkerWidgetState
                             ].divide(const SizedBox(width: 10.0)),
                           ),
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['containerOnPageLoadAnimation6']!),
                       Material(
                         color: Colors.transparent,
                         elevation: 4.0,
@@ -795,7 +947,8 @@ class _AllInformationOfWorkerWidgetState
                             ],
                           ),
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['containerOnPageLoadAnimation7']!),
                       Material(
                         color: Colors.transparent,
                         elevation: 4.0,
@@ -823,34 +976,31 @@ class _AllInformationOfWorkerWidgetState
                               width: 3.0,
                             ),
                           ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Expanded(
-                                child: SelectionArea(
-                                    child: Text(
-                                  valueOrDefault<String>(
-                                    columnPublicusersRow.moreDetail,
-                                    'more',
-                                  ).maybeHandleOverflow(
-                                    maxChars: 1000,
-                                    replacement: '…',
-                                  ),
-                                  textAlign: TextAlign.end,
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleMedium
-                                      .override(
-                                        fontFamily: 'Noto Kufi Arabic',
-                                        fontSize: 17.0,
-                                        letterSpacing: 0.0,
-                                      ),
-                                )),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                5.0, 3.0, 5.0, 3.0),
+                            child: SelectionArea(
+                                child: Text(
+                              valueOrDefault<String>(
+                                columnPublicusersRow.moreDetail,
+                                'more',
+                              ).maybeHandleOverflow(
+                                maxChars: 1000,
+                                replacement: '…',
                               ),
-                            ],
+                              textAlign: TextAlign.end,
+                              style: FlutterFlowTheme.of(context)
+                                  .titleMedium
+                                  .override(
+                                    fontFamily: 'Noto Kufi Arabic',
+                                    fontSize: 17.0,
+                                    letterSpacing: 0.0,
+                                  ),
+                            )),
                           ),
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['containerOnPageLoadAnimation8']!),
                       Material(
                         color: Colors.transparent,
                         elevation: 4.0,
@@ -898,7 +1048,7 @@ class _AllInformationOfWorkerWidgetState
                                   16.0, 0.0, 16.0, 0.0),
                               iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primary,
+                              color: const Color(0xFF46D09B),
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleMedium
                                   .override(
@@ -913,7 +1063,70 @@ class _AllInformationOfWorkerWidgetState
                             ),
                           ),
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['containerOnPageLoadAnimation9']!),
+                      Material(
+                        color: Colors.transparent,
+                        elevation: 4.0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 4.0,
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                offset: const Offset(
+                                  0.0,
+                                  7.0,
+                                ),
+                              )
+                            ],
+                            borderRadius: BorderRadius.circular(8.0),
+                            border: Border.all(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              width: 3.0,
+                            ),
+                          ),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              await launchURL(
+                                  'https://wa.me/2${columnPublicusersRow.phoneNumber}');
+                            },
+                            text: 'أرسل رسالة عبر الواتس ',
+                            icon: const FaIcon(
+                              FontAwesomeIcons.whatsapp,
+                              size: 24.0,
+                            ),
+                            options: FFButtonOptions(
+                              height: 40.0,
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 0.0, 16.0, 0.0),
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: const Color(0xFF46D09B),
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleMedium
+                                  .override(
+                                    fontFamily: 'Noto Kufi Arabic',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    fontSize: 17.0,
+                                    letterSpacing: 0.0,
+                                  ),
+                              elevation: 0.0,
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                          ),
+                        ),
+                      ).animateOnPageLoad(
+                          animationsMap['containerOnPageLoadAnimation10']!),
                     ].divide(const SizedBox(height: 20.0)),
                   ),
                 );

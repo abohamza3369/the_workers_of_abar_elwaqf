@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
@@ -30,7 +31,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
     _model.tabBarController = TabController(
       vsync: this,
       length: 3,
-      initialIndex: 1,
+      initialIndex: 2,
     )..addListener(() => safeSetState(() {}));
     animationsMap.addAll({
       'columnOnPageLoadAnimation1': AnimationInfo(
@@ -571,6 +572,57 @@ class _HomePageWidgetState extends State<HomePageWidget>
                         ),
                         Icon(
                           Icons.home,
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          size: 26.0,
+                        ),
+                      ].divide(const SizedBox(width: 20.0)),
+                    ),
+                  ),
+                ),
+                Container(
+                  width: double.infinity,
+                  height: 50.0,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        FlutterFlowTheme.of(context).primary,
+                        FlutterFlowTheme.of(context).secondary
+                      ],
+                      stops: const [0.0, 1.0],
+                      begin: const AlignmentDirectional(0.0, -1.0),
+                      end: const AlignmentDirectional(0, 1.0),
+                    ),
+                    border: Border.all(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      width: 2.0,
+                    ),
+                  ),
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      await launchURL('https://wa.me/201090413268');
+                    },
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'تواصل مع مبرمج التطبيق',
+                          style:
+                              FlutterFlowTheme.of(context).labelLarge.override(
+                                    fontFamily: 'Noto Kufi Arabic',
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
+                                  ),
+                        ),
+                        FaIcon(
+                          FontAwesomeIcons.whatsapp,
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
                           size: 26.0,

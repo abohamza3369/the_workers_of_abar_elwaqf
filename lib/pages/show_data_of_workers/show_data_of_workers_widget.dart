@@ -7,6 +7,7 @@ import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
@@ -266,6 +267,57 @@ class _ShowDataOfWorkersWidgetState extends State<ShowDataOfWorkersWidget> {
                         ),
                         Icon(
                           Icons.home_sharp,
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          size: 26.0,
+                        ),
+                      ].divide(const SizedBox(width: 20.0)),
+                    ),
+                  ),
+                ),
+                Container(
+                  width: double.infinity,
+                  height: 50.0,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        FlutterFlowTheme.of(context).primary,
+                        FlutterFlowTheme.of(context).secondary
+                      ],
+                      stops: const [0.0, 1.0],
+                      begin: const AlignmentDirectional(0.0, -1.0),
+                      end: const AlignmentDirectional(0, 1.0),
+                    ),
+                    border: Border.all(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      width: 2.0,
+                    ),
+                  ),
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      await launchURL('https://wa.me/201090413268');
+                    },
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'تواصل مع مبرمج التطبيق',
+                          style:
+                              FlutterFlowTheme.of(context).labelLarge.override(
+                                    fontFamily: 'Noto Kufi Arabic',
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
+                                  ),
+                        ),
+                        FaIcon(
+                          FontAwesomeIcons.whatsapp,
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
                           size: 26.0,

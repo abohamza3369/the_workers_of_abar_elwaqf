@@ -1,4 +1,4 @@
-package com.ali3369.theworkers
+package com.mycompany.testthephoneintheworkersapp
 
 import io.flutter.embedding.android.FlutterActivity
 
